@@ -103,7 +103,7 @@ export function ApiGuidePage() {
             </div>
           </div>
           <p className="text-xs text-slate-500 dark:text-slate-500 mt-3">
-            Xem <Link to="/models" className="text-brand hover:underline">danh sách model</Link> để chọn model phù hợp.
+            Xem <Link to="/docs/models" className="text-brand hover:underline">danh sách model</Link> để chọn model phù hợp.
           </p>
         </StepSection>
 

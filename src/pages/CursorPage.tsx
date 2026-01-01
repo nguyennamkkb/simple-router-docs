@@ -79,7 +79,7 @@ export function CursorPage() {
             </div>
             <CodeBlock code={modelsConfig} title="Các model có thể thêm" className="max-w-2xl" />
             <p className="text-xs text-slate-500 dark:text-slate-500 mt-2">
-              Xem <Link to="/models" className="text-pink-600 hover:underline">danh sách model đầy đủ</Link> để chọn model phù hợp.
+              Xem <Link to="/docs/models" className="text-pink-600 hover:underline">danh sách model đầy đủ</Link> để chọn model phù hợp.
             </p>
           </div>
         </StepSection>

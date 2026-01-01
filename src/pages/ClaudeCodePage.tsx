@@ -85,7 +85,7 @@ export function ClaudeCodePage() {
           </p>
           <CodeBlock tabs={envConfigTabs} title="Chạy trong Terminal" className="max-w-2xl" />
           <p className="text-xs text-slate-500 dark:text-slate-500 mt-3">
-            Xem <Link to="/models" className="text-sky-600 hover:underline">danh sách model</Link> để thay thế model phù hợp với nhu cầu của bạn.
+            Xem <Link to="/docs/models" className="text-sky-600 hover:underline">danh sách model</Link> để thay thế model phù hợp với nhu cầu của bạn.
           </p>
         </StepSection>
 

@@ -64,7 +64,7 @@ export function ClinePage() {
             ]}
           />
           <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">
-            Xem <Link to="/models" className="text-indigo-600 hover:underline">danh sách model</Link> để chọn model phù hợp.
+            Xem <Link to="/docs/models" className="text-indigo-600 hover:underline">danh sách model</Link> để chọn model phù hợp.
           </p>
         </StepSection>
       </div>

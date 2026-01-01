@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from 'react-router-dom';
-import { Home, ExternalLink, Layers, Code } from 'lucide-react';
+import { Home, ExternalLink, Layers, Code, Info } from 'lucide-react';
 import {
   Sidebar,
   SidebarContent,
@@ -39,24 +39,24 @@ export function AppSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={location.pathname === '/'}>
-                  <NavLink to="/" className="transition-all duration-200">
-                    <Home className="w-4 h-4" />
-                    <span>Trang chủ</span>
+                <SidebarMenuButton asChild isActive={location.pathname === '/docs'}>
+                  <NavLink to="/docs" className="transition-all duration-200">
+                    <Info className="w-4 h-4" />
+                    <span>Giới thiệu</span>
                   </NavLink>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={location.pathname === '/models'}>
-                  <NavLink to="/models" className="transition-all duration-200">
+                <SidebarMenuButton asChild isActive={location.pathname === '/docs/models'}>
+                  <NavLink to="/docs/models" className="transition-all duration-200">
                     <Layers className="w-4 h-4" />
                     <span>Danh sách Model</span>
                   </NavLink>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={location.pathname === '/api-guide'}>
-                  <NavLink to="/api-guide" className="transition-all duration-200">
+                <SidebarMenuButton asChild isActive={location.pathname === '/docs/api-guide'}>
+                  <NavLink to="/docs/api-guide" className="transition-all duration-200">
                     <Code className="w-4 h-4" />
                     <span>Hướng dẫn API</span>
                   </NavLink>
@@ -90,6 +90,14 @@ export function AppSidebar() {
           <SidebarGroupLabel>Liên kết</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <NavLink to="/" className="transition-all duration-200">
+                    <Home className="w-4 h-4" />
+                    <span>Trang chủ</span>
+                  </NavLink>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
                   <a 

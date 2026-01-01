@@ -107,7 +107,7 @@ export function OpenCodePage() {
           <CodeBlock code={configJson} title="opencode.json" className="max-w-2xl" />
           <p className="text-xs text-slate-500 dark:text-slate-500 mt-3 max-w-2xl">
             Sau khi cấu hình, chạy lệnh <code className="bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded">/models</code> trong OpenCode để chọn model. 
-            Xem <Link to="/models" className="text-emerald-600 hover:underline">danh sách model</Link> để biết thêm các model có sẵn.
+            Xem <Link to="/docs/models" className="text-emerald-600 hover:underline">danh sách model</Link> để biết thêm các model có sẵn.
           </p>
         </StepSection>
       </div>

@@ -107,7 +107,7 @@ export function DroidPage() {
               <li>Với model Gemini và OpenAI, chọn <code className="bg-purple-100 dark:bg-purple-900/30 px-1 rounded">"provider": "openai"</code></li>
             </ul>
             <p className="text-xs text-purple-900 dark:text-purple-200 mt-2">
-              Xem <Link to="/models" className="text-purple-600 hover:underline">danh sách model</Link> để biết thêm các model có sẵn.
+              Xem <Link to="/docs/models" className="text-purple-600 hover:underline">danh sách model</Link> để biết thêm các model có sẵn.
             </p>
           </div>
         </StepSection>
