@@ -2,6 +2,7 @@ import { Badge } from '@/components/ui/badge';
 import { CodeBlock } from '@/components/docs/CodeBlock';
 import { StepSection, FeatureBox } from '@/components/docs/StepSection';
 import { Info } from 'lucide-react';
+import { API_CONFIG } from '@/lib/constants';
 
 const installTabs = [
   { id: 'curl', label: 'macOS/Linux', code: 'curl -fsSL https://ampcode.com/install.sh | bash' },
@@ -27,18 +28,18 @@ const secretsPathTabs = [
 ];
 
 const settingsJson = `{
-  "amp.url": "http://127.0.0.1:8317"
+  "amp.url": "${API_CONFIG.BASE_URL}"
 }`;
 
 const secretsJson = `{
-  "amp.apiKey": "api-key-1"
+  "amp.apiKey": "${API_CONFIG.DEFAULT_API_KEY}"
 }`;
 
 const envVarTabs = [
-  { id: 'macos', label: 'macOS/Linux', code: `export AMP_URL="http://127.0.0.1:8317"
-export AMP_API_KEY="api-key-1"` },
-  { id: 'windows', label: 'Windows', code: `$env:AMP_URL="http://127.0.0.1:8317"
-$env:AMP_API_KEY="api-key-1"` },
+  { id: 'macos', label: 'macOS/Linux', code: `export AMP_URL="${API_CONFIG.BASE_URL}"
+export AMP_API_KEY="${API_CONFIG.DEFAULT_API_KEY}"` },
+  { id: 'windows', label: 'Windows', code: `$env:AMP_URL="${API_CONFIG.BASE_URL}"
+$env:AMP_API_KEY="${API_CONFIG.DEFAULT_API_KEY}"` },
 ];
 
 export function AmpPage() {
@@ -135,7 +136,7 @@ export function AmpPage() {
             <Info className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
             <p className="text-xs text-orange-950 dark:text-orange-200 leading-relaxed m-0">
               <strong>Gợi ý:</strong> Amp cũng hỗ trợ IDE extensions cho VS Code, Cursor, Windsurf. Chỉ cần cấu hình Amp URL là{' '}
-              <code className="bg-orange-100 dark:bg-orange-900/30 px-1 rounded">http://127.0.0.1:8317</code> và API Key trong settings của extension.
+              <code className="bg-orange-100 dark:bg-orange-900/30 px-1 rounded">{API_CONFIG.BASE_URL}</code> và API Key trong settings của extension.
             </p>
           </div>
         </div>

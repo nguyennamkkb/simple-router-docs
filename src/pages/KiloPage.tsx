@@ -2,6 +2,7 @@ import { Badge } from '@/components/ui/badge';
 import { CodeBlock } from '@/components/docs/CodeBlock';
 import { StepSection, FeatureBox, ConfigTable } from '@/components/docs/StepSection';
 import { Link } from 'react-router-dom';
+import { API_CONFIG, DEFAULT_MODELS } from '@/lib/constants';
 
 export function KiloPage() {
   return (
@@ -58,9 +59,9 @@ export function KiloPage() {
           <ConfigTable
             rows={[
               { field: 'API Provider', value: 'OpenAI Compatible' },
-              { field: 'Base URL', value: 'http://127.0.0.1:8317/v1', isCode: true },
-              { field: 'API Key', value: 'api-key-1', isCode: true },
-              { field: 'Model ID', value: 'gemini-claude-sonnet-4-5-thinking', isCode: true },
+              { field: 'Base URL', value: API_CONFIG.BASE_URL_V1, isCode: true },
+              { field: 'API Key', value: API_CONFIG.DEFAULT_API_KEY, isCode: true },
+              { field: 'Model ID', value: DEFAULT_MODELS.CLAUDE_SONNET_THINKING, isCode: true },
             ]}
           />
           <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">

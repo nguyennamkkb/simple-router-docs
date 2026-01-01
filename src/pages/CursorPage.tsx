@@ -3,16 +3,17 @@ import { CodeBlock } from '@/components/docs/CodeBlock';
 import { StepSection, FeatureBox } from '@/components/docs/StepSection';
 import { Info } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { API_CONFIG, DEFAULT_MODELS } from '@/lib/constants';
 
 const modelsConfig = `// Cursor Settings > Models > Add Model
-// Base URL: http://127.0.0.1:8317/v1
-// API Key: api-key-1
+// Base URL: ${API_CONFIG.BASE_URL_V1}
+// API Key: ${API_CONFIG.DEFAULT_API_KEY}
 
 // Các model có thể thêm:
-// - gemini-claude-sonnet-4-5-thinking
-// - gemini-claude-opus-4-5-thinking
-// - gemini-3-flash-preview
-// - gemini-3-pro-preview`;
+// - ${DEFAULT_MODELS.CLAUDE_SONNET_THINKING}
+// - ${DEFAULT_MODELS.CLAUDE_OPUS_THINKING}
+// - ${DEFAULT_MODELS.GEMINI_3_FLASH}
+// - ${DEFAULT_MODELS.GEMINI_3_PRO}`;
 
 export function CursorPage() {
   return (
@@ -65,15 +66,15 @@ export function CursorPage() {
               <div className="space-y-3 text-sm">
                 <div className="flex items-center gap-2">
                   <span className="font-medium text-slate-700 dark:text-slate-300 w-24">Model Name:</span>
-                  <code className="bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">gemini-claude-sonnet-4-5-thinking</code>
+                  <code className="bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">{DEFAULT_MODELS.CLAUDE_SONNET_THINKING}</code>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="font-medium text-slate-700 dark:text-slate-300 w-24">Base URL:</span>
-                  <code className="bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">http://127.0.0.1:8317/v1</code>
+                  <code className="bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">{API_CONFIG.BASE_URL_V1}</code>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="font-medium text-slate-700 dark:text-slate-300 w-24">API Key:</span>
-                  <code className="bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">api-key-1</code>
+                  <code className="bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">{API_CONFIG.DEFAULT_API_KEY}</code>
                 </div>
               </div>
             </div>
@@ -95,7 +96,7 @@ export function CursorPage() {
           <div className="flex gap-3">
             <Info className="w-5 h-5 text-pink-600 mt-0.5 flex-shrink-0" />
             <p className="text-xs text-pink-950 dark:text-pink-200 leading-relaxed m-0">
-              <strong>Lưu ý:</strong> Đảm bảo Simple Router đang chạy trên <code className="bg-pink-100 dark:bg-pink-900/30 px-1 rounded">http://127.0.0.1:8317</code> trước khi sử dụng trong Cursor.
+              <strong>Lưu ý:</strong> Đảm bảo Simple Router đang chạy trên <code className="bg-pink-100 dark:bg-pink-900/30 px-1 rounded">{API_CONFIG.BASE_URL}</code> trước khi sử dụng trong Cursor.
             </p>
           </div>
         </div>

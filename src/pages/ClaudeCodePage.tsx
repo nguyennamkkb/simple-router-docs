@@ -3,6 +3,7 @@ import { CodeBlock } from '@/components/docs/CodeBlock';
 import { StepSection, FeatureBox } from '@/components/docs/StepSection';
 import { Info } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { API_CONFIG, codeExamples } from '@/lib/constants';
 
 const installTabs = [
   { id: 'npm', label: 'npm', code: 'npm install -g @anthropic-ai/claude-code' },
@@ -11,33 +12,9 @@ const installTabs = [
 ];
 
 const envConfigTabs = [
-  { 
-    id: 'macos', 
-    label: 'macOS', 
-    code: `export ANTHROPIC_BASE_URL=http://127.0.0.1:8317
-export ANTHROPIC_AUTH_TOKEN=api-key-1
-export ANTHROPIC_DEFAULT_OPUS_MODEL=gemini-claude-opus-4-5-thinking
-export ANTHROPIC_DEFAULT_SONNET_MODEL=gemini-claude-sonnet-4-5-thinking
-export ANTHROPIC_DEFAULT_HAIKU_MODEL=gemini-3-flash-preview` 
-  },
-  { 
-    id: 'linux', 
-    label: 'Linux', 
-    code: `export ANTHROPIC_BASE_URL=http://127.0.0.1:8317
-export ANTHROPIC_AUTH_TOKEN=api-key-1
-export ANTHROPIC_DEFAULT_OPUS_MODEL=gemini-claude-opus-4-5-thinking
-export ANTHROPIC_DEFAULT_SONNET_MODEL=gemini-claude-sonnet-4-5-thinking
-export ANTHROPIC_DEFAULT_HAIKU_MODEL=gemini-3-flash-preview` 
-  },
-  { 
-    id: 'windows', 
-    label: 'Windows', 
-    code: `$env:ANTHROPIC_BASE_URL="http://127.0.0.1:8317"
-$env:ANTHROPIC_AUTH_TOKEN="api-key-1"
-$env:ANTHROPIC_DEFAULT_OPUS_MODEL="gemini-claude-opus-4-5-thinking"
-$env:ANTHROPIC_DEFAULT_SONNET_MODEL="gemini-claude-sonnet-4-5-thinking"
-$env:ANTHROPIC_DEFAULT_HAIKU_MODEL="gemini-3-flash-preview"` 
-  },
+  { id: 'macos', label: 'macOS', code: codeExamples.claudeCodeEnv.unix() },
+  { id: 'linux', label: 'Linux', code: codeExamples.claudeCodeEnv.unix() },
+  { id: 'windows', label: 'Windows', code: codeExamples.claudeCodeEnv.windows() },
 ];
 
 export function ClaudeCodePage() {
@@ -131,7 +108,7 @@ export function ClaudeCodePage() {
           <div className="flex gap-3">
             <Info className="w-5 h-5 text-sky-600 mt-0.5 flex-shrink-0" />
             <p className="text-xs text-sky-950 dark:text-sky-200 leading-relaxed m-0">
-              <strong>Gợi ý:</strong> Thay <code className="bg-sky-100 dark:bg-sky-900/30 px-1 rounded">api-key-1</code> bằng 
+              <strong>Gợi ý:</strong> Thay <code className="bg-sky-100 dark:bg-sky-900/30 px-1 rounded">{API_CONFIG.DEFAULT_API_KEY}</code> bằng 
               API key thực của bạn. Bạn có thể lấy key từ{' '}
               <a href="https://t.me/simple_route_bot" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">
                 @simple_route_bot

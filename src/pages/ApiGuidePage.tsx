@@ -3,51 +3,10 @@ import { CodeBlock } from '@/components/docs/CodeBlock';
 import { StepSection } from '@/components/docs/StepSection';
 import { Info, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
-const curlExample = `curl http://127.0.0.1:8317/v1/chat/completions \\
-  -H "Content-Type: application/json" \\
-  -H "Authorization: Bearer api-key-1" \\
-  -d '{
-    "model": "gemini-claude-sonnet-4-5-thinking",
-    "messages": [
-      {"role": "user", "content": "Xin chào!"}
-    ]
-  }'`;
-
-const pythonExample = `from openai import OpenAI
-
-client = OpenAI(
-    base_url="http://127.0.0.1:8317/v1",
-    api_key="api-key-1"
-)
-
-response = client.chat.completions.create(
-    model="gemini-claude-sonnet-4-5-thinking",
-    messages=[
-        {"role": "user", "content": "Xin chào!"}
-    ]
-)
-
-print(response.choices[0].message.content)`;
-
-const nodeExample = `import OpenAI from 'openai';
-
-const client = new OpenAI({
-  baseURL: 'http://127.0.0.1:8317/v1',
-  apiKey: 'api-key-1',
-});
-
-const response = await client.chat.completions.create({
-  model: 'gemini-claude-sonnet-4-5-thinking',
-  messages: [
-    { role: 'user', content: 'Xin chào!' }
-  ],
-});
-
-console.log(response.choices[0].message.content);`;
+import { API_CONFIG, DEFAULT_MODELS, codeExamples } from '@/lib/constants';
 
 const streamExample = `const stream = await client.chat.completions.create({
-  model: 'gemini-claude-sonnet-4-5-thinking',
+  model: '${DEFAULT_MODELS.CLAUDE_SONNET_THINKING}',
   messages: [
     { role: 'user', content: 'Viết một bài thơ ngắn' }
   ],
@@ -59,9 +18,9 @@ for await (const chunk of stream) {
 }`;
 
 const codeTabs = [
-  { id: 'curl', label: 'cURL', code: curlExample },
-  { id: 'python', label: 'Python', code: pythonExample },
-  { id: 'node', label: 'Node.js', code: nodeExample },
+  { id: 'curl', label: 'cURL', code: codeExamples.curl() },
+  { id: 'python', label: 'Python', code: codeExamples.python() },
+  { id: 'node', label: 'Node.js', code: codeExamples.node() },
 ];
 
 export function ApiGuidePage() {
@@ -90,15 +49,15 @@ export function ApiGuidePage() {
             <div className="space-y-3 text-sm">
               <div className="flex items-center gap-2">
                 <span className="font-medium text-slate-700 dark:text-slate-300 w-24">Base URL:</span>
-                <code className="bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">http://127.0.0.1:8317/v1</code>
+                <code className="bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">{API_CONFIG.BASE_URL_V1}</code>
               </div>
               <div className="flex items-center gap-2">
                 <span className="font-medium text-slate-700 dark:text-slate-300 w-24">API Key:</span>
-                <code className="bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">api-key-1</code>
+                <code className="bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">{API_CONFIG.DEFAULT_API_KEY}</code>
               </div>
               <div className="flex items-center gap-2">
                 <span className="font-medium text-slate-700 dark:text-slate-300 w-24">Model:</span>
-                <code className="bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">gemini-claude-sonnet-4-5-thinking</code>
+                <code className="bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">{DEFAULT_MODELS.CLAUDE_SONNET_THINKING}</code>
               </div>
             </div>
           </div>

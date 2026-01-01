@@ -2,6 +2,7 @@ import { Badge } from '@/components/ui/badge';
 import { CodeBlock } from '@/components/docs/CodeBlock';
 import { StepSection, FeatureBox } from '@/components/docs/StepSection';
 import { Link } from 'react-router-dom';
+import { codeExamples } from '@/lib/constants';
 
 const installTabs = [
   { id: 'script', label: 'Script', code: 'curl -fsSL https://opencode.ai/install | bash' },
@@ -16,33 +17,7 @@ const configPathTabs = [
   { id: 'windows', label: 'Windows', code: '%USERPROFILE%\\.config\\opencode\\opencode.json' },
 ];
 
-const configJson = `{
-  "$schema": "https://opencode.ai/config.json",
-  "provider": {
-    "simple-router": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "Simple Router",
-      "options": {
-        "baseURL": "http://127.0.0.1:8317/v1",
-        "apiKey": "api-key-1"
-      },
-      "models": {
-        "gemini-claude-sonnet-4-5-thinking": {
-          "name": "Claude Sonnet 4.5 Thinking"
-        },
-        "gemini-claude-opus-4-5-thinking": {
-          "name": "Claude Opus 4.5 Thinking"
-        },
-        "gemini-3-flash-preview": {
-          "name": "Gemini 3 Flash"
-        },
-        "gemini-3-pro-preview": {
-          "name": "Gemini 3 Pro"
-        }
-      }
-    }
-  }
-}`;
+const configJson = codeExamples.openCodeConfig();
 
 export function OpenCodePage() {
   return (

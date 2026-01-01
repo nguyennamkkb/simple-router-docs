@@ -2,6 +2,7 @@ import { Badge } from '@/components/ui/badge';
 import { CodeBlock } from '@/components/docs/CodeBlock';
 import { StepSection, FeatureBox } from '@/components/docs/StepSection';
 import { Link } from 'react-router-dom';
+import { codeExamples } from '@/lib/constants';
 
 const configPathTabs = [
   { id: 'macos', label: 'macOS', code: '~/.factory/config.json' },
@@ -9,28 +10,7 @@ const configPathTabs = [
   { id: 'windows', label: 'Windows', code: '%USERPROFILE%\\.factory\\config.json' },
 ];
 
-const configJson = `{
-  "custom_models": [
-    {
-      "model": "gemini-3-flash-preview",
-      "base_url": "http://127.0.0.1:8317/v1",
-      "api_key": "api-key-1",
-      "provider": "openai"
-    },
-    {
-      "model": "gemini-claude-opus-4-5-thinking",
-      "base_url": "http://127.0.0.1:8317",
-      "api_key": "api-key-1",
-      "provider": "anthropic"
-    },
-    {
-      "model": "gpt-oss-120b-medium",
-      "base_url": "http://127.0.0.1:8317",
-      "api_key": "api-key-1",
-      "provider": "openai"
-    }
-  ]
-}`;
+const configJson = codeExamples.droidConfig();
 
 export function DroidPage() {
   return (
