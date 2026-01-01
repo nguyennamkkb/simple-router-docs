@@ -1,0 +1,171 @@
+<div>
+    <header class="mb-10 pb-8 border-b border-slate-100 dark:border-slate-800">
+        <div class="flex items-center gap-2 mb-4">
+            <span
+                class="text-[10px] font-bold text-emerald-500 uppercase tracking-widest bg-emerald-50 dark:bg-emerald-900/10 px-2 py-0.5 rounded">Tích
+                hợp</span>
+        </div>
+        <h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">Cài đặt OpenCode</h1>
+        <p class="text-base text-slate-600 dark:text-slate-400">
+            Cấu hình OpenCode Agent để hoạt động liền mạch với cổng API hợp nhất của Simple Router.
+        </p>
+    </header>
+
+    <div class="space-y-12">
+        <!-- Step 1 -->
+        <section>
+            <div class="flex items-center gap-3 mb-4">
+                <span class="step-number">1</span>
+                <h2 class="text-lg font-bold text-slate-900 dark:text-white m-0">Giới thiệu</h2>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mb-6">
+                OpenCode là một agent AI nguồn mở mạnh mẽ chạy trong terminal của bạn. Bằng cách kết nối nó với Simple
+                Router, bạn có thể điều phối nhiều model thông qua một cấu hình duy nhất.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div
+                    class="p-4 rounded-lg bg-emerald-50 dark:bg-emerald-900/10 border border-emerald-100 dark:border-emerald-900/20">
+                    <h4 class="text-xs font-bold text-emerald-900 dark:text-emerald-100 mb-2 uppercase tracking-wide">
+                        Lợi ích</h4>
+                    <ul class="text-xs text-emerald-800 dark:text-emerald-200 space-y-2 list-none p-0 m-0">
+                        <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-emerald-500"></span>
+                            Mã nguồn mở & Ưu tiên cục bộ</li>
+                        <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-emerald-500"></span>
+                            Cấu hình Provider linh hoạt</li>
+                        <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-emerald-500"></span>
+                            Truy cập toàn bộ hệ thống tệp</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 2 -->
+        <section>
+            <div class="flex items-center gap-3 mb-4">
+                <span class="step-number">2</span>
+                <h2 class="text-lg font-bold text-slate-900 dark:text-white m-0">Cài đặt</h2>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">Cài đặt OpenCode CLI toàn cục.</p>
+
+            <div class="code-window max-w-2xl">
+                <div class="code-header">
+                    <div class="flex gap-4">
+                        <button onclick="showTab('install-oc', 'npm')" id="tab-install-oc-npm"
+                            class="text-[11px] font-bold text-slate-100 border-b border-brand-500 pb-0.5">npm</button>
+                        <button onclick="showTab('install-oc', 'pnpm')" id="tab-install-oc-pnpm"
+                            class="text-[11px] font-bold text-slate-400 hover:text-slate-100">pnpm</button>
+                        <button onclick="showTab('install-oc', 'yarn')" id="tab-install-oc-yarn"
+                            class="text-[11px] font-bold text-slate-400 hover:text-slate-100">yarn</button>
+                    </div>
+                </div>
+                <div class="p-5 font-mono text-sm overflow-x-auto whitespace-nowrap">
+                    <div id="code-install-oc-npm" class="flex items-center justify-between group">
+                        <code
+                            class="text-slate-300">npm <span class="text-brand-400">install -g</span> opencode-ai</code>
+                        <button onclick="copyCode(this)"
+                            class="p-1.5 hover:bg-white/5 rounded transition-colors opacity-0 group-hover:opacity-100 text-slate-500"><svg
+                                class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg></button>
+                    </div>
+                    <div id="code-install-oc-pnpm" class="hidden flex items-center justify-between group">
+                        <code class="text-slate-300">pnpm <span class="text-brand-400">add -g</span> opencode-ai</code>
+                        <button onclick="copyCode(this)"
+                            class="p-1.5 hover:bg-white/5 rounded transition-colors opacity-0 group-hover:opacity-100 text-slate-500"><svg
+                                class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg></button>
+                    </div>
+                    <div id="code-install-oc-yarn" class="hidden flex items-center justify-between group">
+                        <code
+                            class="text-slate-300">yarn <span class="text-brand-400">global add</span> opencode-ai</code>
+                        <button onclick="copyCode(this)"
+                            class="p-1.5 hover:bg-white/5 rounded transition-colors opacity-0 group-hover:opacity-100 text-slate-500"><svg
+                                class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 3 -->
+        <section>
+            <div class="flex items-center gap-3 mb-4">
+                <span class="step-number">3</span>
+                <h2 class="text-lg font-bold text-slate-900 dark:text-white m-0">Cấu hình</h2>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">Tạo tệp cấu hình để trỏ OpenCode tới Simple
+                Router của bạn.</p>
+
+            <!-- OS Specific Paths -->
+            <div class="code-window max-w-2xl mb-6">
+                <div class="code-header">
+                    <div class="flex gap-4">
+                        <button onclick="showTab('config-oc', 'macos')" id="tab-config-oc-macos"
+                            class="text-[11px] font-bold text-slate-100 border-b border-brand-500 pb-0.5">macOS</button>
+                        <button onclick="showTab('config-oc', 'linux')" id="tab-config-oc-linux"
+                            class="text-[11px] font-bold text-slate-400 hover:text-slate-100">Linux</button>
+                        <button onclick="showTab('config-oc', 'windows')" id="tab-config-oc-windows"
+                            class="text-[11px] font-bold text-slate-400 hover:text-slate-100">Windows</button>
+                    </div>
+                </div>
+                <div class="p-5 font-mono text-sm overflow-x-auto whitespace-nowrap">
+                    <div id="code-config-oc-macos" class="flex items-center justify-between group">
+                        <code class="text-slate-300">~/.config/opencode/opencode.json</code>
+                        <button onclick="copyCode(this)"
+                            class="p-1.5 hover:bg-white/5 rounded transition-colors opacity-0 group-hover:opacity-100 text-slate-500"><svg
+                                class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg></button>
+                    </div>
+                    <div id="code-config-oc-linux" class="hidden flex items-center justify-between group">
+                        <code class="text-slate-300">~/.config/opencode/opencode.json</code>
+                        <button onclick="copyCode(this)"
+                            class="p-1.5 hover:bg-white/5 rounded transition-colors opacity-0 group-hover:opacity-100 text-slate-500"><svg
+                                class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg></button>
+                    </div>
+                    <div id="code-config-oc-windows" class="hidden flex items-center justify-between group">
+                        <code class="text-slate-300">%USERPROFILE%\.config\opencode\opencode.json</code>
+                        <button onclick="copyCode(this)"
+                            class="p-1.5 hover:bg-white/5 rounded transition-colors opacity-0 group-hover:opacity-100 text-slate-500"><svg
+                                class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-window max-w-2xl">
+                <div class="code-header">
+                    <span class="text-[11px] font-bold text-slate-100">opencode.json content</span>
+                    <button onclick="copyCode(this)"
+                        class="text-[10px] font-bold text-slate-500 hover:text-slate-100 transition-colors uppercase tracking-widest">Copy
+                        Config</button>
+                </div>
+                <div class="p-5 overflow-auto">
+                    <pre class="m-0"><code class="text-slate-300">{
+  <span class="text-purple-400">"defaultProvider"</span>: <span class="text-emerald-400">"simple-router"</span>,
+  <span class="text-purple-400">"providers"</span>: {
+    <span class="text-purple-400">"simple-router"</span>: {
+      <span class="text-purple-400">"type"</span>: <span class="text-emerald-400">"openai"</span>,
+      <span class="text-purple-400">"baseUrl"</span>: <span class="text-emerald-400">"http://simpleverse.io.vn/router/v1"</span>,
+      <span class="text-purple-400">"apiKey"</span>: <span class="text-emerald-400">"any-key-works"</span>,
+      <span class="text-purple-400">"model"</span>: <span class="text-emerald-400">"claude-3-5-sonnet"</span>
+    }
+  },
+  <span class="text-purple-400">"theme"</span>: <span class="text-emerald-400">"dark"</span>
+}</code></pre>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Router - Tài liệu hướng dẫn</title>
+    <script src="https://cdn.tailwindcss.com?plugins=typography,aspect-ratio"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        dark: {
+                            bg: '#0a0c10',
+                            surface: '#11141a',
+                            border: '#1f242d'
+                        }
+                    },
+                    borderRadius: {
+                        'xl': '0.75rem',
+                        '2xl': '1rem',
+                    },
+                    maxWidth: {
+                        '8xl': '90rem',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Outfit', 'Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Menlo', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .glass-nav {
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .dark .glass-nav {
+            background-color: rgba(10, 12, 16, 0.85);
+            border-bottom-color: #1f242d;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+
+        .dark ::-webkit-scrollbar-thumb {
+            background: #1f242d;
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.15s ease;
+            color: #64748b;
+            border: 1px solid transparent;
+        }
+
+        .sidebar-item:hover {
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+
+        .dark .sidebar-item:hover {
+            background-color: #11141a;
+            color: #f1f5f9;
+        }
+
+        .sidebar-item.active {
+            color: #0ea5e9;
+            background-color: #f0f9ff;
+            border-color: #e0f2fe;
+            font-weight: 600;
+        }
+
+        .dark .sidebar-item.active {
+            color: #38bdf8;
+            background-color: rgba(56, 189, 248, 0.05);
+            border-color: rgba(56, 189, 248, 0.15);
+        }
+
+        .doc-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+        }
+
+        .dark .doc-card {
+            background: #11141a;
+            border-color: #1f242d;
+        }
+
+        .doc-card:hover {
+            border-color: #cbd5e1;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .dark .doc-card:hover {
+            border-color: #334155;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-link {
+            transition: color 0.15s ease;
+        }
+
+        .nav-link:hover {
+            color: #0ea5e9;
+        }
+
+        #app-content {
+            opacity: 0;
+            animation: contentAppear 0.3s ease-out forwards;
+        }
+
+        @keyframes contentAppear {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+        }
+
+        .dark .step-number {
+            background: #1f242d;
+            color: #94a3b8;
+            border-color: #334155;
+        }
+
+        .code-window {
+            background: #0d1117;
+            border-radius: 12px;
+            border: 1px solid #30363d;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        .code-header {
+            background: #161b22;
+            padding: 8px 16px;
+            border-bottom: 1px solid #30363d;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        pre code {
+            font-family: 'JetBrains Mono', monospace !important;
+            font-size: 13px !important;
+            line-height: 1.5 !important;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-dark-bg text-slate-600 dark:text-slate-400 min-h-screen antialiased">
+    <!-- Top Navigation -->
+    <header class="fixed top-0 z-50 w-full border-b border-slate-200/60 dark:border-dark-border glass-nav">
+        <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-8">
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleSidebar()"
+                    class="lg:hidden p-2.5 rounded-xl text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-all">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+
+                <a href="#/" class="flex items-center gap-3 group">
+                    <div
+                        class="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl flex items-center justify-center shadow-lg shadow-primary-500/20 group-hover:shadow-primary-500/40 transition-all transform group-hover:scale-105 active:scale-95">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <span class="font-bold text-slate-900 dark:text-white text-xl tracking-tight">Simple Router</span>
+                </a>
+
+                <nav class="hidden md:flex items-center gap-6">
+                    <a href="#/"
+                        class="nav-link text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">Tài
+                        liệu</a>
+                    <a href="https://t.me/simple_route_bot" target="_blank"
+                        class="nav-link text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-opacity-70">Tham
+                        gia</a>
+                </nav>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <button onclick="toggleTheme()"
+                    class="p-2.5 rounded-xl text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-all border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
+                    <span class="dark:hidden">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                            </path>
+                        </svg>
+                    </span>
+                    <span class="hidden dark:block">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                            </path>
+                        </svg>
+                    </span>
+                </button>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 flex items-start gap-0 pt-16">
+
+        <!-- Sidebar -->
+        <aside id="sidebar"
+            class="fixed inset-y-0 left-0 z-40 w-72 pt-8 bg-white dark:bg-dark-bg border-r border-slate-200/60 dark:border-dark-border transform -translate-x-full lg:translate-x-0 transition-all duration-300 ease-in-out lg:sticky lg:top-16 h-[calc(100vh-4rem)] overflow-y-auto">
+            <nav class="p-8 space-y-10">
+                <div>
+                    <h3
+                        class="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-[0.2em] mb-6 px-1">
+                        Menu</h3>
+                    <ul class="space-y-1.5">
+                        <li>
+                            <a href="#/" class="sidebar-item" data-path="/">
+                                <svg class="w-5 h-5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                </svg>
+                                Trang chủ
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3
+                        class="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-[0.2em] mb-6 px-1">
+                        Tích hợp</h3>
+                    <ul class="space-y-1.5">
+                        <li>
+                            <a href="#/claude-code" class="sidebar-item" data-path="/claude-code">
+                                <div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+                                Claude Code
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/opencode" class="sidebar-item" data-path="/opencode">
+                                <div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+                                OpenCode
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/droid" class="sidebar-item" data-path="/droid">
+                                <div class="w-1.5 h-1.5 rounded-full bg-purple-500"></div>
+                                Droid
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/amp" class="sidebar-item" data-path="/amp">
+                                <div class="w-1.5 h-1.5 rounded-full bg-orange-500"></div>
+                                Amp
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/kilo" class="sidebar-item" data-path="/kilo">
+                                <div class="w-1.5 h-1.5 rounded-full bg-red-500"></div>
+                                Kilo Code
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/roo-code" class="sidebar-item" data-path="/roo-code">
+                                <div class="w-1.5 h-1.5 rounded-full bg-yellow-500"></div>
+                                Roo Code
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/cline" class="sidebar-item" data-path="/cline">
+                                <div class="w-1.5 h-1.5 rounded-full bg-indigo-500"></div>
+                                Cline
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/zed" class="sidebar-item" data-path="/zed">
+                                <div class="w-1.5 h-1.5 rounded-full bg-cyan-500"></div>
+                                Zed
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Overlay for mobile sidebar -->
+        <div id="sidebar-overlay" onclick="toggleSidebar()"
+            class="fixed inset-0 z-30 bg-black/50 hidden lg:hidden backdrop-blur-sm"></div>
+
+        <!-- Content Area -->
+        <main class="flex-1 min-w-0 py-12 lg:pl-16 lg:pr-12">
+            <div id="app-content"
+                class="max-w-4xl prose prose-slate dark:prose-invert prose-headings:font-bold prose-headings:tracking-tight prose-a:text-primary-600 dark:prose-a:text-primary-400 hover:prose-a:text-primary-500 prose-img:rounded-3xl prose-pre:rounded-2xl prose-pre:shadow-2xl prose-pre:shadow-black/10">
+                <!-- Dynamic Content Loaded Here -->
+                <div class="flex items-center justify-center h-64">
+                    <div class="relative w-12 h-12">
+                        <div
+                            class="absolute inset-0 border-4 border-primary-100 dark:border-primary-900/30 rounded-full">
+                        </div>
+                        <div
+                            class="absolute inset-0 border-4 border-primary-500 rounded-full border-t-transparent animate-spin">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="mt-24 pt-12 border-t border-slate-200 dark:border-slate-800 pb-12">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <p class="text-sm text-slate-500 dark:text-slate-500">
+                        © 2025 Simpleverse. Đã đăng ký bản quyền. Được xây dựng cho các tác nhân AI hiệu năng cao.
+                    </p>
+
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

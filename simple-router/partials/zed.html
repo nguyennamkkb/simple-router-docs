@@ -1,0 +1,121 @@
+<div>
+    <header class="mb-10 pb-8 border-b border-slate-100 dark:border-slate-800">
+        <div class="flex items-center gap-2 mb-4">
+            <span
+                class="text-[10px] font-bold text-cyan-500 uppercase tracking-widest bg-cyan-50 dark:bg-cyan-900/10 px-2 py-0.5 rounded">Tích
+                hợp</span>
+        </div>
+        <h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">Tích hợp Zed</h1>
+        <p class="text-base text-slate-600 dark:text-slate-400">
+            Trình soạn thảo mã hiệu năng cao với khả năng AI nguyên bản.
+        </p>
+    </header>
+
+    <div class="space-y-12">
+        <!-- Step 1 -->
+        <section>
+            <div class="flex items-center gap-3 mb-4">
+                <span class="step-number">1</span>
+                <h2 class="text-lg font-bold text-slate-900 dark:text-white m-0">Giới thiệu</h2>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mb-6">
+                Zed là một trình soạn thảo nhanh như chớp với trợ lý AI tích hợp sẵn. Bằng cách định cấu hình nó để sử
+                dụng Simple Router, bạn có thể tận dụng khả năng quản lý model tập trung trực tiếp trong Zed.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div
+                    class="p-4 rounded-lg bg-cyan-50 dark:bg-cyan-900/10 border border-cyan-100 dark:border-cyan-900/20">
+                    <h4 class="text-xs font-bold text-cyan-900 dark:text-cyan-100 mb-2 uppercase tracking-wide">Tính
+                        năng
+                    </h4>
+                    <ul class="text-xs text-cyan-800 dark:text-cyan-200 space-y-2 list-none p-0 m-0">
+                        <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-cyan-500"></span>
+                            Tương thích OpenAI nguyên bản</li>
+                        <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-cyan-500"></span>
+                            Trợ lý nội tuyến (Inline Assistant)</li>
+                        <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-cyan-500"></span>
+                            Nhân Rust siêu nhanh</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 2 -->
+        <section>
+            <div class="flex items-center gap-3 mb-4">
+                <span class="step-number">2</span>
+                <h2 class="text-lg font-bold text-slate-900 dark:text-white m-0">Cài đặt</h2>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">Tải xuống Zed cho nền tảng của bạn.</p>
+
+            <div class="code-window max-w-2xl">
+                <div class="code-header">
+                    <span class="text-[11px] font-bold text-slate-100">Tải xuống Chính thức</span>
+                </div>
+                <div class="p-5 font-mono text-sm overflow-x-auto whitespace-nowrap">
+                    <div class="flex items-center justify-between group">
+                        <code
+                            class="text-slate-300">Truy cập <a href="https://zed.dev" target="_blank" class="text-brand-400 hover:text-brand-300 underline">zed.dev</a> để tải xuống phiên bản mới nhất.</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 3 -->
+        <section>
+            <div class="flex items-center gap-3 mb-4">
+                <span class="step-number">3</span>
+                <h2 class="text-lg font-bold text-slate-900 dark:text-white m-0">Cấu hình</h2>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">Cấu hình Zed để trỏ tới Simple Router thông qua
+                cài đặt (settings).</p>
+
+            <ol class="list-decimal list-inside text-sm text-slate-600 dark:text-slate-400 space-y-2 mb-6 ml-4">
+                <li>Mở Cài đặt Zed (Cmd+, hoặc Ctrl+,).</li>
+                <li>Thêm hoặc cập nhật phần <code>language_models</code>.</li>
+            </ol>
+
+            <div class="code-window max-w-2xl mb-6">
+                <div class="code-header">
+                    <div class="flex gap-4">
+                        <button onclick="showTab('config-zed', 'json')" id="tab-config-zed-json"
+                            class="text-[11px] font-bold text-slate-100 border-b border-brand-500 pb-0.5">settings.json</button>
+                    </div>
+                </div>
+                <div class="p-5 overflow-auto">
+                    <pre class="m-0"><code class="text-slate-300">{
+  <span class="text-purple-400">"language_models"</span>: {
+    <span class="text-purple-400">"openai"</span>: {
+      <span class="text-purple-400">"api_url"</span>: <span class="text-emerald-400">"http://simpleverse.io.vn/router/v1"</span>,
+      <span class="text-purple-400">"available_models"</span>: [
+        {
+          <span class="text-purple-400">"name"</span>: <span class="text-emerald-400">"claude-3-5-sonnet"</span>,
+          <span class="text-purple-400">"max_tokens"</span>: <span class="text-orange-400">4096</span>
+        }
+      ]
+    }
+  }
+}</code></pre>
+                </div>
+            </div>
+
+            <p class="text-sm text-slate-600 dark:text-slate-400 mb-2">Đừng quên thiết lập API key của bạn trong
+                terminal:
+            </p>
+            <div class="code-window max-w-2xl">
+                <div class="code-header">
+                    <span class="text-[11px] font-bold text-slate-100">Terminal</span>
+                    <button onclick="copyCode(this)"
+                        class="text-[10px] font-bold text-slate-500 hover:text-slate-100 transition-colors uppercase tracking-widest">Copy
+                        Command</button>
+                </div>
+                <div class="p-5 font-mono text-sm overflow-x-auto whitespace-nowrap">
+                    <div class="flex items-center justify-between group">
+                        <code
+                            class="text-slate-300">export OPENAI_API_KEY=<span class="text-emerald-400">"sk-simple-router"</span></code>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

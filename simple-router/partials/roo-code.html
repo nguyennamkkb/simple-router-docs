@@ -1,0 +1,119 @@
+<div>
+    <header class="mb-10 pb-8 border-b border-slate-100 dark:border-slate-800">
+        <div class="flex items-center gap-2 mb-4">
+            <span
+                class="text-[10px] font-bold text-yellow-500 uppercase tracking-widest bg-yellow-50 dark:bg-yellow-900/10 px-2 py-0.5 rounded">Tích
+                hợp</span>
+        </div>
+        <h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">Tích hợp Roo Code</h1>
+        <p class="text-base text-slate-600 dark:text-slate-400">
+            Tiện ích mở rộng agent lập trình tự chủ cho VS Code (trước đây là Roo Cline).
+        </p>
+    </header>
+
+    <div class="space-y-12">
+        <!-- Step 1 -->
+        <section>
+            <div class="flex items-center gap-3 mb-4">
+                <span class="step-number">1</span>
+                <h2 class="text-lg font-bold text-slate-900 dark:text-white m-0">Giới thiệu</h2>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mb-6">
+                Roo Code là một agent AI hoàn toàn tự chủ hoạt động trong trình soạn thảo của bạn. Bằng cách kết nối nó
+                với Simple Router, bạn có thể kiểm soát tập trung các model và chi phí.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div
+                    class="p-4 rounded-lg bg-yellow-50 dark:bg-yellow-900/10 border border-yellow-100 dark:border-yellow-900/20">
+                    <h4 class="text-xs font-bold text-yellow-900 dark:text-yellow-100 mb-2 uppercase tracking-wide">
+                        Khả năng</h4>
+                    <ul class="text-xs text-yellow-800 dark:text-yellow-200 space-y-2 list-none p-0 m-0">
+                        <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-yellow-500"></span>
+                            Truy cập Dòng lệnh (Command Line)</li>
+                        <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-yellow-500"></span>
+                            Thao tác File I/O</li>
+                        <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-yellow-500"></span>
+                            Tự động hóa Trình duyệt</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 2 -->
+        <section>
+            <div class="flex items-center gap-3 mb-4">
+                <span class="step-number">2</span>
+                <h2 class="text-lg font-bold text-slate-900 dark:text-white m-0">Cài đặt</h2>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">Cài đặt cài đặt thông qua VS Code Marketplace.
+            </p>
+
+            <div class="code-window max-w-2xl">
+                <div class="code-header">
+                    <span class="text-[11px] font-bold text-slate-100">VS Code Marketplace</span>
+                </div>
+                <div class="p-5 font-mono text-sm overflow-x-auto whitespace-nowrap">
+                    <div id="code-install-roo" class="flex items-center justify-between group">
+                        <code
+                            class="text-slate-300">ext install <span class="text-brand-400">RooVeterinaryInc.roo-cline</span></code>
+                        <button onclick="copyCode(this)"
+                            class="p-1.5 hover:bg-white/5 rounded transition-colors opacity-0 group-hover:opacity-100 text-slate-500"><svg
+                                class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg></button>
+                    </div>
+                </div>
+            </div>
+            <p class="text-xs text-slate-500 mt-4 italic">Hoặc tìm kiếm "Roo Code" trong thanh bên Extensions.</p>
+        </section>
+
+        <!-- Step 3 -->
+        <section>
+            <div class="flex items-center gap-3 mb-4">
+                <span class="step-number">3</span>
+                <h2 class="text-lg font-bold text-slate-900 dark:text-white m-0">Cấu hình</h2>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">Cấu hình Roo Code để sử dụng nhà cung cấp tương
+                thích OpenAI tùy chỉnh.</p>
+
+            <ol class="list-decimal list-inside text-sm text-slate-600 dark:text-slate-400 space-y-2 mb-6 ml-4">
+                <li>Mở Cài đặt Roo Code (biểu tượng bánh răng trong bảng Roo).</li>
+                <li>Đi tới thiết lập <strong>Providers</strong>.</li>
+                <li>Chọn <strong>OpenAI Compatible</strong> từ menu thả xuống.</li>
+                <li>Nhập cấu hình:</li>
+            </ol>
+
+            <div class="overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800">
+                <table class="w-full text-left text-sm">
+                    <thead
+                        class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-semibold border-b border-slate-200 dark:border-slate-800">
+                        <tr>
+                            <th class="p-4 w-1/3">Trường cài đặt</th>
+                            <th class="p-4">Giá trị cần nhập</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 dark:divide-slate-800 bg-white dark:bg-slate-950">
+                        <tr>
+                            <td class="p-4 font-medium text-slate-700 dark:text-slate-300">API Provider</td>
+                            <td class="p-4 text-slate-600 dark:text-slate-400">OpenAI Compatible</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-medium text-slate-700 dark:text-slate-300">Base URL</td>
+                            <td class="p-4 font-mono text-emerald-600 dark:text-emerald-400 break-all select-all">
+                                http://simpleverse.io.vn/router/v1</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-medium text-slate-700 dark:text-slate-300">API Key</td>
+                            <td class="p-4 font-mono text-slate-500 select-all">any-key-works</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-medium text-slate-700 dark:text-slate-300">Model ID</td>
+                            <td class="p-4 font-mono text-slate-500 select-all">claude-3-5-sonnet</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</div>
