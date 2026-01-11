@@ -13,7 +13,6 @@ const models = [
 
 const integrations = [
   { name: 'Claude Code', color: 'bg-blue-500' },
-  { name: 'Cursor', color: 'bg-pink-500' },
   { name: 'OpenCode', color: 'bg-emerald-500' },
   { name: 'Droid', color: 'bg-purple-500' },
   { name: 'Kilo Code', color: 'bg-red-500' },
@@ -72,9 +71,9 @@ export function HomePage() {
             <Link to="/docs" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Tài liệu
             </Link>
-            <a 
-              href="https://t.me/simple_route_bot" 
-              target="_blank" 
+            <a
+              href="https://t.me/simple_route_bot"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
@@ -93,7 +92,7 @@ export function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-blue-500/5 dark:from-primary/10 dark:to-blue-500/10" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-        
+
         <div className="relative max-w-5xl mx-auto px-4 py-24 sm:py-32">
           <div className="text-center space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
@@ -111,7 +110,7 @@ export function HomePage() {
 
             <div className="flex flex-wrap justify-center gap-3 pt-4">
               {models.map((model) => (
-                <span 
+                <span
                   key={model.name}
                   className={`px-3 py-1.5 rounded-full bg-muted text-sm font-medium ${model.color}`}
                 >
@@ -138,6 +137,98 @@ export function HomePage() {
         </div>
       </section>
 
+      {/* Package Plans Section */}
+      <section className="max-w-5xl mx-auto px-4 py-20">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+            Gói Dịch Vụ
+          </h2>
+          <p className="text-lg text-muted-foreground">
+            Các gói dịch vụ linh hoạt phù hợp với mọi nhu cầu sử dụng
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Package A */}
+          <div className="p-6 rounded-2xl bg-card border hover:border-primary/50 hover:shadow-lg transition-all duration-300">
+            <div className="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center mb-4">
+              <Sparkles className="w-6 h-6" />
+            </div>
+            <h3 className="text-xl font-bold mb-2 text-blue-500">
+              Gói A
+            </h3>
+            <div className="space-y-3 mb-4">
+              <p className="text-sm text-muted-foreground">
+                Hỗ trợ đến 240 yêu cầu/5 giờ
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Hỗ trợ các mô hình Claude và Gemini mới nhất
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Phù hợp với nhiều nhu cầu khác nhau
+              </p>
+            </div>
+            <Button asChild variant="outline" className="w-full mt-4">
+              <a href="https://t.me/simple_route_bot" target="_blank" rel="noopener noreferrer">
+                Đăng ký ngay
+              </a>
+            </Button>
+          </div>
+
+          {/* Package K */}
+          <div className="p-6 rounded-2xl bg-card border hover:border-primary/50 hover:shadow-lg transition-all duration-300">
+            <div className="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-500 flex items-center justify-center mb-4">
+              <Zap className="w-6 h-6" />
+            </div>
+            <h3 className="text-xl font-bold mb-2 text-orange-500">
+              Gói K
+            </h3>
+            <div className="space-y-3 mb-4">
+              <p className="text-sm text-muted-foreground">
+                Hỗ trợ các mô hình Claude Opus, Sonnet, Haiku 4.5 series
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Tối đa 2000 yêu cầu/tháng
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Phù hợp cho các tác vụ cường độ cao
+              </p>
+            </div>
+            <Button asChild variant="outline" className="w-full mt-4">
+              <a href="https://t.me/simple_route_bot" target="_blank" rel="noopener noreferrer">
+                Đăng ký ngay
+              </a>
+            </Button>
+          </div>
+
+          {/* Package Q */}
+          <div className="p-6 rounded-2xl bg-card border hover:border-primary/50 hover:shadow-lg transition-all duration-300">
+            <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center mb-4">
+              <Shield className="w-6 h-6" />
+            </div>
+            <h3 className="text-xl font-bold mb-2 text-emerald-500">
+              Gói Q
+            </h3>
+            <div className="space-y-3 mb-4">
+              <p className="text-sm text-muted-foreground">
+                Hỗ trợ các mô hình lập trình chuyên nghiệp Qwen Coder
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Giới hạn 2000 yêu cầu/ngày
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Phù hợp cho các tác vụ lập trình hàng ngày cơ bản
+              </p>
+            </div>
+            <Button asChild variant="outline" className="w-full mt-4">
+              <a href="https://t.me/simple_route_bot" target="_blank" rel="noopener noreferrer">
+                Đăng ký ngay
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Integrations Strip */}
       <section className="border-y bg-muted/50 py-8">
         <div className="max-w-5xl mx-auto px-4">
@@ -146,7 +237,7 @@ export function HomePage() {
           </p>
           <div className="flex flex-wrap justify-center items-center gap-4">
             {integrations.map((item) => (
-              <div 
+              <div
                 key={item.name}
                 className="flex items-center gap-2 px-4 py-2 rounded-lg bg-background border"
               >
@@ -171,7 +262,7 @@ export function HomePage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {features.map((feature, index) => (
-            <div 
+            <div
               key={index}
               className="p-6 rounded-2xl bg-card border hover:border-primary/50 hover:shadow-lg transition-all duration-300"
             >
@@ -220,9 +311,9 @@ export function HomePage() {
             <Link to="/docs" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Tài liệu
             </Link>
-            <a 
-              href="https://t.me/simple_route_bot" 
-              target="_blank" 
+            <a
+              href="https://t.me/simple_route_bot"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >

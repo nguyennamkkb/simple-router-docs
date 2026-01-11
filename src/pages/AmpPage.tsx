@@ -135,7 +135,7 @@ export function AmpPage() {
           <div className="flex gap-3">
             <Info className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
             <p className="text-xs text-orange-950 dark:text-orange-200 leading-relaxed m-0">
-              <strong>Gợi ý:</strong> Amp cũng hỗ trợ IDE extensions cho VS Code, Cursor, Windsurf. Chỉ cần cấu hình Amp URL là{' '}
+              <strong>Gợi ý:</strong> Amp cũng hỗ trợ IDE extensions cho VS Code, Windsurf. Chỉ cần cấu hình Amp URL là{' '}
               <code className="bg-orange-100 dark:bg-orange-900/30 px-1 rounded">{API_CONFIG.BASE_URL}</code> và API Key trong settings của extension.
             </p>
           </div>

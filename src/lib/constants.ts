@@ -1,7 +1,7 @@
 // API Configuration
 export const API_CONFIG = {
-  BASE_URL: 'http://127.0.0.1:8317',
-  BASE_URL_V1: 'http://127.0.0.1:8317/v1',
+  BASE_URL: 'https://simpleverse.io.vn/route',
+  BASE_URL_V1: 'https://simpleverse.io.vn/route/v1',
   DEFAULT_API_KEY: 'api-key-1',
 } as const;
 
@@ -76,6 +76,22 @@ $env:ANTHROPIC_DEFAULT_SONNET_MODEL="${DEFAULT_MODELS.CLAUDE_SONNET_THINKING}"
 $env:ANTHROPIC_DEFAULT_HAIKU_MODEL="${DEFAULT_MODELS.GEMINI_3_FLASH}"`,
   },
 
+  claudeCodeSettings: () => `{
+  "env": {
+    "ANTHROPIC_BASE_URL": "${API_CONFIG.BASE_URL}",
+    "ANTHROPIC_AUTH_TOKEN": "${API_CONFIG.DEFAULT_API_KEY}",
+    "ANTHROPIC_MODEL": "${DEFAULT_MODELS.GEMINI_3_PRO}",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "${DEFAULT_MODELS.CLAUDE_OPUS_THINKING}",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "${DEFAULT_MODELS.CLAUDE_SONNET}",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "${DEFAULT_MODELS.GEMINI_3_FLASH}"
+  }
+}`,
+
+  claudeCodeSettingsPath: {
+    unix: () => `~/.claude/settings.json`,
+    windows: () => `%USERPROFILE%\\.claude\\settings.json`,
+  },
+
   openCodeConfig: () => `{
   "$schema": "https://opencode.ai/config.json",
   "provider": {
@@ -120,7 +136,7 @@ $env:ANTHROPIC_DEFAULT_HAIKU_MODEL="${DEFAULT_MODELS.GEMINI_3_FLASH}"`,
     },
     {
       "model": "${DEFAULT_MODELS.GPT_OSS}",
-      "base_url": "${API_CONFIG.BASE_URL}",
+      "base_url": "${API_CONFIG.BASE_URL_V1}",
       "api_key": "${API_CONFIG.DEFAULT_API_KEY}",
       "provider": "openai"
     }

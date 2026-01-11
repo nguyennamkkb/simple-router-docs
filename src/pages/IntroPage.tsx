@@ -29,12 +29,6 @@ const integrations = [
     color: 'bg-blue-500',
   },
   {
-    path: '/docs/cursor',
-    title: 'Cursor',
-    description: 'IDE với AI tích hợp sâu',
-    color: 'bg-pink-500',
-  },
-  {
     path: '/docs/opencode',
     title: 'OpenCode',
     description: 'Agent AI nguồn mở cho terminal',
@@ -93,7 +87,7 @@ export function IntroPage() {
           Giới thiệu
         </h1>
         <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-          Simple Router là cổng API hợp nhất cho các AI coding agent. Kết nối Claude Code, Cursor, OpenCode và nhiều công cụ khác 
+          Simple Router là cổng API hợp nhất cho các AI coding agent. Kết nối Claude Code, OpenCode và nhiều công cụ khác
           với các model mới nhất: <span className="font-semibold text-blue-500">Claude Opus 4.5</span>,{' '}
           <span className="font-semibold text-emerald-500">Gemini 3 Pro</span>.
         </p>

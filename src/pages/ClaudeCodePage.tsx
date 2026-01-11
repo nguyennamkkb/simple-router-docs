@@ -11,10 +11,9 @@ const installTabs = [
   { id: 'yarn', label: 'yarn', code: 'yarn global add @anthropic-ai/claude-code' },
 ];
 
-const envConfigTabs = [
-  { id: 'macos', label: 'macOS', code: codeExamples.claudeCodeEnv.unix() },
-  { id: 'linux', label: 'Linux', code: codeExamples.claudeCodeEnv.unix() },
-  { id: 'windows', label: 'Windows', code: codeExamples.claudeCodeEnv.windows() },
+const settingsPathTabs = [
+  { id: 'macos', label: 'macOS/Linux', code: codeExamples.claudeCodeSettingsPath.unix() },
+  { id: 'windows', label: 'Windows', code: codeExamples.claudeCodeSettingsPath.windows() },
 ];
 
 export function ClaudeCodePage() {
@@ -57,10 +56,14 @@ export function ClaudeCodePage() {
         </StepSection>
 
         <StepSection step={3} title="Cấu hình">
-          <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">
-            Chạy các lệnh sau trong terminal để thiết lập biến môi trường. Chọn hệ điều hành của bạn:
+          <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
+            Tạo file <code className="bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-xs">settings.json</code> tại đường dẫn sau:
           </p>
-          <CodeBlock tabs={envConfigTabs} title="Chạy trong Terminal" className="max-w-2xl" />
+          <CodeBlock tabs={settingsPathTabs} title="Đường dẫn file" className="max-w-2xl mb-6" />
+          <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
+            Với nội dung:
+          </p>
+          <CodeBlock code={codeExamples.claudeCodeSettings()} language="json" title="settings.json" className="max-w-2xl" />
           <p className="text-xs text-slate-500 dark:text-slate-500 mt-3">
             Xem <Link to="/docs/models" className="text-sky-600 hover:underline">danh sách model</Link> để thay thế model phù hợp với nhu cầu của bạn.
           </p>

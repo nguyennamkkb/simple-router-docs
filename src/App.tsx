@@ -5,7 +5,6 @@ import { IntroPage } from '@/pages/IntroPage';
 import { ModelsPage } from '@/pages/ModelsPage';
 import { ApiGuidePage } from '@/pages/ApiGuidePage';
 import { ClaudeCodePage } from '@/pages/ClaudeCodePage';
-import { CursorPage } from '@/pages/CursorPage';
 import { OpenCodePage } from '@/pages/OpenCodePage';
 import { DroidPage } from '@/pages/DroidPage';
 import { AmpPage } from '@/pages/AmpPage';
@@ -27,7 +26,6 @@ function App() {
           <Route path="models" element={<ModelsPage />} />
           <Route path="api-guide" element={<ApiGuidePage />} />
           <Route path="claude-code" element={<ClaudeCodePage />} />
-          <Route path="cursor" element={<CursorPage />} />
           <Route path="opencode" element={<OpenCodePage />} />
           <Route path="droid" element={<DroidPage />} />
           <Route path="amp" element={<AmpPage />} />
