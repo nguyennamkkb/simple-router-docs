@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight, Zap, Sparkles, Shield, Gauge, ChevronRight, Moon, Sun } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
@@ -40,6 +42,42 @@ const features = [
     icon: Shield,
     title: 'An toàn & Bảo mật',
     description: 'Dữ liệu của bạn được bảo vệ. Không lưu trữ nội dung conversation.',
+  },
+];
+
+const packages = [
+  {
+    name: 'Gói A',
+    icon: Sparkles,
+    color: 'text-blue-500',
+    bgColor: 'bg-blue-500/10',
+    features: [
+      'Hỗ trợ đến 240 yêu cầu/5 giờ',
+      'Hỗ trợ các mô hình Claude và Gemini mới nhất',
+      'Phù hợp với nhiều nhu cầu khác nhau',
+    ],
+  },
+  {
+    name: 'Gói K',
+    icon: Zap,
+    color: 'text-orange-500',
+    bgColor: 'bg-orange-500/10',
+    features: [
+      'Hỗ trợ các mô hình Claude Opus, Sonnet, Haiku 4.5 series',
+      'Tối đa 2000 yêu cầu/tháng',
+      'Phù hợp cho các tác vụ cường độ cao',
+    ],
+  },
+  {
+    name: 'Gói Q',
+    icon: Shield,
+    color: 'text-emerald-500',
+    bgColor: 'bg-emerald-500/10',
+    features: [
+      'Hỗ trợ các mô hình lập trình chuyên nghiệp Qwen Coder',
+      'Giới hạn 2000 yêu cầu/ngày',
+      'Phù hợp cho n8n, chatbot và các tác vụ lập trình hàng ngày',
+    ],
   },
 ];
 
@@ -95,9 +133,15 @@ export function HomePage() {
 
         <div className="relative max-w-5xl mx-auto px-4 py-24 sm:py-32">
           <div className="text-center space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
-              <Zap className="w-4 h-4" />
-              Unified AI Gateway
+            <div className="flex flex-wrap justify-center gap-2">
+              <Badge variant="secondary" className="px-4 py-2">
+                <Zap className="w-4 h-4 mr-2" />
+                Unified AI Gateway
+              </Badge>
+              <Badge variant="outline" className="px-4 py-2">
+                <Sparkles className="w-4 h-4 mr-2" />
+                OpenAI Compatible
+              </Badge>
             </div>
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-foreground tracking-tight">
@@ -110,12 +154,9 @@ export function HomePage() {
 
             <div className="flex flex-wrap justify-center gap-3 pt-4">
               {models.map((model) => (
-                <span
-                  key={model.name}
-                  className={`px-3 py-1.5 rounded-full bg-muted text-sm font-medium ${model.color}`}
-                >
+                <Badge key={model.name} variant="outline" className={model.color}>
                   {model.name}
-                </span>
+                </Badge>
               ))}
             </div>
 
@@ -144,88 +185,33 @@ export function HomePage() {
             Gói Dịch Vụ
           </h2>
           <p className="text-lg text-muted-foreground">
-            Các gói dịch vụ linh hoạt phù hợp với mọi nhu cầu sử dụng
+            Các gói dịch vụ linh hoạt phù hợp với mọi nhu cầu sử dụng, code, n8n, chatbot
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Package A */}
-          <div className="p-6 rounded-2xl bg-card border hover:border-primary/50 hover:shadow-lg transition-all duration-300">
-            <div className="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center mb-4">
-              <Sparkles className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-bold mb-2 text-blue-500">
-              Gói A
-            </h3>
-            <div className="space-y-3 mb-4">
-              <p className="text-sm text-muted-foreground">
-                Hỗ trợ đến 240 yêu cầu/5 giờ
-              </p>
-              <p className="text-sm text-muted-foreground">
-                Hỗ trợ các mô hình Claude và Gemini mới nhất
-              </p>
-              <p className="text-sm text-muted-foreground">
-                Phù hợp với nhiều nhu cầu khác nhau
-              </p>
-            </div>
-            <Button asChild variant="outline" className="w-full mt-4">
-              <a href="https://t.me/simple_route_bot" target="_blank" rel="noopener noreferrer">
-                Đăng ký ngay
-              </a>
-            </Button>
-          </div>
-
-          {/* Package K */}
-          <div className="p-6 rounded-2xl bg-card border hover:border-primary/50 hover:shadow-lg transition-all duration-300">
-            <div className="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-500 flex items-center justify-center mb-4">
-              <Zap className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-bold mb-2 text-orange-500">
-              Gói K
-            </h3>
-            <div className="space-y-3 mb-4">
-              <p className="text-sm text-muted-foreground">
-                Hỗ trợ các mô hình Claude Opus, Sonnet, Haiku 4.5 series
-              </p>
-              <p className="text-sm text-muted-foreground">
-                Tối đa 2000 yêu cầu/tháng
-              </p>
-              <p className="text-sm text-muted-foreground">
-                Phù hợp cho các tác vụ cường độ cao
-              </p>
-            </div>
-            <Button asChild variant="outline" className="w-full mt-4">
-              <a href="https://t.me/simple_route_bot" target="_blank" rel="noopener noreferrer">
-                Đăng ký ngay
-              </a>
-            </Button>
-          </div>
-
-          {/* Package Q */}
-          <div className="p-6 rounded-2xl bg-card border hover:border-primary/50 hover:shadow-lg transition-all duration-300">
-            <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center mb-4">
-              <Shield className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-bold mb-2 text-emerald-500">
-              Gói Q
-            </h3>
-            <div className="space-y-3 mb-4">
-              <p className="text-sm text-muted-foreground">
-                Hỗ trợ các mô hình lập trình chuyên nghiệp Qwen Coder
-              </p>
-              <p className="text-sm text-muted-foreground">
-                Giới hạn 2000 yêu cầu/ngày
-              </p>
-              <p className="text-sm text-muted-foreground">
-                Phù hợp cho các tác vụ lập trình hàng ngày cơ bản
-              </p>
-            </div>
-            <Button asChild variant="outline" className="w-full mt-4">
-              <a href="https://t.me/simple_route_bot" target="_blank" rel="noopener noreferrer">
-                Đăng ký ngay
-              </a>
-            </Button>
-          </div>
+          {packages.map((pkg) => (
+            <Card key={pkg.name} className="hover:border-primary/50 hover:shadow-lg transition-all duration-300">
+              <CardHeader>
+                <div className={`w-12 h-12 rounded-xl ${pkg.bgColor} ${pkg.color} flex items-center justify-center mb-2`}>
+                  <pkg.icon className="w-6 h-6" />
+                </div>
+                <CardTitle className={pkg.color}>{pkg.name}</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-3">
+                  {pkg.features.map((feature, idx) => (
+                    <CardDescription key={idx}>{feature}</CardDescription>
+                  ))}
+                </div>
+                <Button asChild variant="outline" className="w-full">
+                  <a href="https://t.me/simple_route_bot" target="_blank" rel="noopener noreferrer">
+                    Đăng ký ngay
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </section>
 
@@ -237,13 +223,10 @@ export function HomePage() {
           </p>
           <div className="flex flex-wrap justify-center items-center gap-4">
             {integrations.map((item) => (
-              <div
-                key={item.name}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-background border"
-              >
-                <div className={`w-2 h-2 rounded-full ${item.color}`} />
-                <span className="text-sm font-medium">{item.name}</span>
-              </div>
+              <Badge key={item.name} variant="outline" className="px-4 py-2">
+                <div className={`w-2 h-2 rounded-full ${item.color} mr-2`} />
+                {item.name}
+              </Badge>
             ))}
           </div>
         </div>
@@ -262,43 +245,40 @@ export function HomePage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {features.map((feature, index) => (
-            <div
-              key={index}
-              className="p-6 rounded-2xl bg-card border hover:border-primary/50 hover:shadow-lg transition-all duration-300"
-            >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
-                <feature.icon className="w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">
-                {feature.title}
-              </h3>
-              <p className="text-muted-foreground">
-                {feature.description}
-              </p>
-            </div>
+            <Card key={index} className="hover:border-primary/50 hover:shadow-lg transition-all duration-300">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-2">
+                  <feature.icon className="w-6 h-6" />
+                </div>
+                <CardTitle>{feature.title}</CardTitle>
+                <CardDescription>{feature.description}</CardDescription>
+              </CardHeader>
+            </Card>
           ))}
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="max-w-5xl mx-auto px-4 pb-20">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary to-blue-600 p-8 sm:p-12">
+        <Card className="relative overflow-hidden bg-gradient-to-r from-primary to-blue-600 border-0">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-          <div className="relative text-center space-y-6">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white">
+          <CardHeader className="relative text-center space-y-4 py-12">
+            <CardTitle className="text-3xl sm:text-4xl text-white">
               Sẵn sàng bắt đầu?
-            </h2>
-            <p className="text-lg text-white/80 max-w-xl mx-auto">
+            </CardTitle>
+            <CardDescription className="text-lg text-white/80 max-w-xl mx-auto">
               Đăng ký qua Telegram để nhận API key miễn phí và bắt đầu sử dụng ngay hôm nay.
-            </p>
-            <Button asChild size="lg" variant="secondary" className="text-lg px-8 py-6">
-              <a href="https://t.me/simple_route_bot" target="_blank" rel="noopener noreferrer">
-                @simple_route_bot
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </a>
-            </Button>
-          </div>
-        </div>
+            </CardDescription>
+            <div className="pt-4">
+              <Button asChild size="lg" variant="secondary" className="text-lg px-8 py-6">
+                <a href="https://t.me/simple_route_bot" target="_blank" rel="noopener noreferrer">
+                  @simple_route_bot
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </a>
+              </Button>
+            </div>
+          </CardHeader>
+        </Card>
       </section>
 
       {/* Footer */}

@@ -1,4 +1,6 @@
 import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useState } from 'react';
 import { Copy, Check, Package } from 'lucide-react';
 
@@ -95,69 +97,69 @@ const models: ModelInfo[] = [
   },
   // Package K models
   {
-  id: 'k-kiro-claude-haiku-4-5',
-  name: 'Claude Haiku 4.5',
-  description: 'Model Claude Haiku 4.5 nhanh chóng cho các tác vụ đơn giản',
-  category: 'claude',
-  features: ['Fast Response', 'Lightweight', 'Quick Tasks'],
-  package: 'K',
-},
-{
-  id: 'k-kiro-claude-haiku-4-5-agentic',
-  name: 'Claude Haiku 4.5 Agentic',
-  description: 'Model Claude Haiku 4.5 với khả năng agentic cho các tác vụ tự động',
-  category: 'claude',
-  features: ['Agentic Capabilities', 'Fast Response', 'Automation'],
-  package: 'K',
-},
-{
-  id: 'k-kiro-claude-opus-4-5',
-  name: 'Claude Opus 4.5',
-  description: 'Model Claude Opus 4.5 mạnh mẽ cho các tác vụ phức tạp',
-  category: 'claude',
-  features: ['High Intelligence', 'Complex Reasoning', 'Premium'],
-  package: 'K',
-},
-{
-  id: 'k-kiro-claude-opus-4-5-agentic',
-  name: 'Claude Opus 4.5 Agentic',
-  description: 'Model Claude Opus 4.5 với khả năng agentic nâng cao',
-  category: 'claude',
-  features: ['Advanced Agentic', 'Complex Reasoning', 'Premium'],
-  package: 'K',
-},
-{
-  id: 'k-kiro-claude-sonnet-4',
-  name: 'Claude Sonnet 4',
-  description: 'Model Claude Sonnet 4 cân bằng hiệu suất và tốc độ',
-  category: 'claude',
-  features: ['Balanced Performance', 'Fast Reasoning', 'Efficient'],
-  package: 'K',
-},
-{
-  id: 'k-kiro-claude-sonnet-4-5',
-  name: 'Claude Sonnet 4.5',
-  description: 'Model Claude Sonnet 4.5 cân bằng giữa hiệu suất và tốc độ',
-  category: 'claude',
-  features: ['Balanced Performance', 'Fast Reasoning', 'Efficient'],
-  package: 'K',
-},
-{
-  id: 'k-kiro-claude-sonnet-4-5-agentic',
-  name: 'Claude Sonnet 4.5 Agentic',
-  description: 'Model Claude Sonnet 4.5 với khả năng agentic',
-  category: 'claude',
-  features: ['Agentic Capabilities', 'Balanced Performance', 'Advanced'],
-  package: 'K',
-},
-{
-  id: 'k-kiro-claude-sonnet-4-agentic',
-  name: 'Claude Sonnet 4 Agentic',
-  description: 'Model Claude Sonnet 4 với khả năng agentic',
-  category: 'claude',
-  features: ['Agentic Capabilities', 'Balanced Performance', 'Efficient'],
-  package: 'K',
-},
+    id: 'k-kiro-claude-haiku-4-5',
+    name: 'Claude Haiku 4.5',
+    description: 'Model Claude Haiku 4.5 nhanh chóng cho các tác vụ đơn giản',
+    category: 'claude',
+    features: ['Fast Response', 'Lightweight', 'Quick Tasks'],
+    package: 'K',
+  },
+  {
+    id: 'k-kiro-claude-haiku-4-5-agentic',
+    name: 'Claude Haiku 4.5 Agentic',
+    description: 'Model Claude Haiku 4.5 với khả năng agentic cho các tác vụ tự động',
+    category: 'claude',
+    features: ['Agentic Capabilities', 'Fast Response', 'Automation'],
+    package: 'K',
+  },
+  {
+    id: 'k-kiro-claude-opus-4-5',
+    name: 'Claude Opus 4.5',
+    description: 'Model Claude Opus 4.5 mạnh mẽ cho các tác vụ phức tạp',
+    category: 'claude',
+    features: ['High Intelligence', 'Complex Reasoning', 'Premium'],
+    package: 'K',
+  },
+  {
+    id: 'k-kiro-claude-opus-4-5-agentic',
+    name: 'Claude Opus 4.5 Agentic',
+    description: 'Model Claude Opus 4.5 với khả năng agentic nâng cao',
+    category: 'claude',
+    features: ['Advanced Agentic', 'Complex Reasoning', 'Premium'],
+    package: 'K',
+  },
+  {
+    id: 'k-kiro-claude-sonnet-4',
+    name: 'Claude Sonnet 4',
+    description: 'Model Claude Sonnet 4 cân bằng hiệu suất và tốc độ',
+    category: 'claude',
+    features: ['Balanced Performance', 'Fast Reasoning', 'Efficient'],
+    package: 'K',
+  },
+  {
+    id: 'k-kiro-claude-sonnet-4-5',
+    name: 'Claude Sonnet 4.5',
+    description: 'Model Claude Sonnet 4.5 cân bằng giữa hiệu suất và tốc độ',
+    category: 'claude',
+    features: ['Balanced Performance', 'Fast Reasoning', 'Efficient'],
+    package: 'K',
+  },
+  {
+    id: 'k-kiro-claude-sonnet-4-5-agentic',
+    name: 'Claude Sonnet 4.5 Agentic',
+    description: 'Model Claude Sonnet 4.5 với khả năng agentic',
+    category: 'claude',
+    features: ['Agentic Capabilities', 'Balanced Performance', 'Advanced'],
+    package: 'K',
+  },
+  {
+    id: 'k-kiro-claude-sonnet-4-agentic',
+    name: 'Claude Sonnet 4 Agentic',
+    description: 'Model Claude Sonnet 4 với khả năng agentic',
+    category: 'claude',
+    features: ['Agentic Capabilities', 'Balanced Performance', 'Efficient'],
+    package: 'K',
+  },
   // Package Q models
   {
     id: 'q-qwen3-coder-flash',
@@ -211,119 +213,107 @@ function CopyButton({ text }: { text: string }) {
   return (
     <button
       onClick={handleCopy}
-      className="p-1.5 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+      className="p-1.5 rounded-md hover:bg-muted transition-colors"
       title="Copy Model ID"
     >
       {copied ? (
         <Check className="w-4 h-4 text-green-500" />
       ) : (
-        <Copy className="w-4 h-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300" />
+        <Copy className="w-4 h-4 text-muted-foreground hover:text-foreground" />
       )}
     </button>
   );
 }
 
+function ModelCard({ model }: { model: ModelInfo }) {
+  return (
+    <Card>
+      <CardHeader className="pb-3">
+        <div className="flex items-center gap-2">
+          <CardTitle className="text-lg">{model.name}</CardTitle>
+          <span className={`px-2 py-0.5 rounded text-xs text-white ${categoryColors[model.category]}`}>
+            {categoryLabels[model.category]}
+          </span>
+        </div>
+        <CardDescription>{model.description}</CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        <div className="flex items-center gap-2">
+          <span className="text-xs text-muted-foreground font-medium">Model ID:</span>
+          <code className="text-sm bg-muted px-2 py-1 rounded font-mono">
+            {model.id}
+          </code>
+          <CopyButton text={model.id} />
+        </div>
+        {model.features && (
+          <div className="flex flex-wrap gap-2">
+            {model.features.map((feature) => (
+              <Badge key={feature} variant="secondary">
+                {feature}
+              </Badge>
+            ))}
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  );
+}
+
+function ModelList({ packageType }: { packageType: 'A' | 'K' | 'Q' }) {
+  const filteredModels = models.filter(model => model.package === packageType);
+  
+  return (
+    <div className="space-y-4">
+      {filteredModels.map((model) => (
+        <ModelCard key={model.id} model={model} />
+      ))}
+    </div>
+  );
+}
+
 export function ModelsPage() {
-  const [activePackage, setActivePackage] = useState<'A' | 'K' | 'Q'>('A');
-
-  const filteredModels = models.filter(model => model.package === activePackage);
-
   return (
     <div>
-      <header className="mb-10 pb-8 border-b border-slate-100 dark:border-slate-800">
+      <header className="mb-10 pb-8 border-b">
         <div className="flex items-center gap-2 mb-4">
           <Badge variant="secondary" className="text-brand bg-brand/10">
             Tài liệu
           </Badge>
         </div>
-        <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
+        <h1 className="text-3xl font-bold tracking-tight mb-4">
           Danh sách Model
         </h1>
-        <p className="text-base text-slate-600 dark:text-slate-400">
+        <p className="text-base text-muted-foreground">
           Các model AI có sẵn trên Simple Router. Sử dụng Model ID khi cấu hình các công cụ.
         </p>
       </header>
 
-      {/* Package Tabs */}
-      <div className="flex flex-wrap gap-2 mb-8">
-        <button
-          onClick={() => setActivePackage('A')}
-          className={`px-4 py-2 rounded-lg border transition-colors ${
-            activePackage === 'A'
-              ? 'border-blue-500 bg-blue-500/10 text-blue-600'
-              : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
-          }`}
-        >
-          <Package className="w-4 h-4 inline mr-2" />
-          Gói A
-        </button>
-        <button
-          onClick={() => setActivePackage('K')}
-          className={`px-4 py-2 rounded-lg border transition-colors ${
-            activePackage === 'K'
-              ? 'border-orange-500 bg-orange-500/10 text-orange-600'
-              : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
-          }`}
-        >
-          <Package className="w-4 h-4 inline mr-2" />
-          Gói K
-        </button>
-        <button
-          onClick={() => setActivePackage('Q')}
-          className={`px-4 py-2 rounded-lg border transition-colors ${
-            activePackage === 'Q'
-              ? 'border-emerald-500 bg-emerald-500/10 text-emerald-600'
-              : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
-          }`}
-        >
-          <Package className="w-4 h-4 inline mr-2" />
-          Gói Q
-        </button>
-      </div>
+      <Tabs defaultValue="A">
+        <TabsList className="mb-6">
+          <TabsTrigger value="A">
+            <Package className="w-4 h-4 mr-2" />
+            Gói A
+          </TabsTrigger>
+          <TabsTrigger value="K">
+            <Package className="w-4 h-4 mr-2" />
+            Gói K
+          </TabsTrigger>
+          <TabsTrigger value="Q">
+            <Package className="w-4 h-4 mr-2" />
+            Gói Q
+          </TabsTrigger>
+        </TabsList>
 
-      <div className="space-y-4">
-        {filteredModels.map((model) => (
-          <div
-            key={model.id}
-            className="p-5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 hover:border-slate-300 dark:hover:border-slate-600 transition-colors"
-          >
-            <div className="flex items-start justify-between gap-4 mb-3">
-              <div className="flex-1">
-                <div className="flex items-center gap-2 mb-2">
-                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-                    {model.name}
-                  </h3>
-                  <span className={`px-2 py-0.5 rounded text-xs text-white ${categoryColors[model.category]}`}>
-                    {categoryLabels[model.category]}
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">Model ID:</span>
-                  <code className="text-sm bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded text-slate-700 dark:text-slate-300 font-mono">
-                    {model.id}
-                  </code>
-                  <CopyButton text={model.id} />
-                </div>
-              </div>
-            </div>
-            <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">
-              {model.description}
-            </p>
-            {model.features && (
-              <div className="flex flex-wrap gap-2">
-                {model.features.map((feature) => (
-                  <span
-                    key={feature}
-                    className="px-2 py-0.5 rounded-full text-xs bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300"
-                  >
-                    {feature}
-                  </span>
-                ))}
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
+        <TabsContent value="A">
+          <ModelList packageType="A" />
+        </TabsContent>
+        <TabsContent value="K">
+          <ModelList packageType="K" />
+        </TabsContent>
+        <TabsContent value="Q">
+          <ModelList packageType="Q" />
+        </TabsContent>
+      </Tabs>
     </div>
   );
 }
