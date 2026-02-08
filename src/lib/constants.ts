@@ -25,7 +25,7 @@ export const codeExamples = {
   -H "Content-Type: application/json" \\
   -H "Authorization: Bearer ${API_CONFIG.DEFAULT_API_KEY}" \\
   -d '{
-    "model": "${DEFAULT_MODELS.CLAUDE_SONNET_THINKING}",
+    "model": "THAY_TÊN_MODEL",
     "messages": [
       {"role": "user", "content": "Xin chào!"}
     ]
@@ -39,7 +39,7 @@ client = OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="${DEFAULT_MODELS.CLAUDE_SONNET_THINKING}",
+    model="THAY_TÊN_MODEL",
     messages=[
         {"role": "user", "content": "Xin chào!"}
     ]
@@ -55,7 +55,7 @@ const client = new OpenAI({
 });
 
 const response = await client.chat.completions.create({
-  model: '${DEFAULT_MODELS.CLAUDE_SONNET_THINKING}',
+  model: 'THAY_TÊN_MODEL',
   messages: [
     { role: 'user', content: 'Xin chào!' }
   ],
@@ -66,24 +66,24 @@ console.log(response.choices[0].message.content);`,
   claudeCodeEnv: {
     unix: () => `export ANTHROPIC_BASE_URL=${API_CONFIG.BASE_URL}
 export ANTHROPIC_AUTH_TOKEN=${API_CONFIG.DEFAULT_API_KEY}
-export ANTHROPIC_DEFAULT_OPUS_MODEL=${DEFAULT_MODELS.CLAUDE_OPUS_THINKING}
-export ANTHROPIC_DEFAULT_SONNET_MODEL=${DEFAULT_MODELS.CLAUDE_SONNET_THINKING}
-export ANTHROPIC_DEFAULT_HAIKU_MODEL=${DEFAULT_MODELS.GEMINI_3_FLASH}`,
+export ANTHROPIC_DEFAULT_OPUS_MODEL=THAY_TÊN_MODEL
+export ANTHROPIC_DEFAULT_SONNET_MODEL=THAY_TÊN_MODEL
+export ANTHROPIC_DEFAULT_HAIKU_MODEL=THAY_TÊN_MODEL`,
     windows: () => `$env:ANTHROPIC_BASE_URL="${API_CONFIG.BASE_URL}"
 $env:ANTHROPIC_AUTH_TOKEN="${API_CONFIG.DEFAULT_API_KEY}"
-$env:ANTHROPIC_DEFAULT_OPUS_MODEL="${DEFAULT_MODELS.CLAUDE_OPUS_THINKING}"
-$env:ANTHROPIC_DEFAULT_SONNET_MODEL="${DEFAULT_MODELS.CLAUDE_SONNET_THINKING}"
-$env:ANTHROPIC_DEFAULT_HAIKU_MODEL="${DEFAULT_MODELS.GEMINI_3_FLASH}"`,
+$env:ANTHROPIC_DEFAULT_OPUS_MODEL="THAY_TÊN_MODEL"
+$env:ANTHROPIC_DEFAULT_SONNET_MODEL="THAY_TÊN_MODEL"
+$env:ANTHROPIC_DEFAULT_HAIKU_MODEL="THAY_TÊN_MODEL"`,
   },
 
   claudeCodeSettings: () => `{
   "env": {
     "ANTHROPIC_BASE_URL": "${API_CONFIG.BASE_URL}",
     "ANTHROPIC_AUTH_TOKEN": "${API_CONFIG.DEFAULT_API_KEY}",
-    "ANTHROPIC_MODEL": "${DEFAULT_MODELS.GEMINI_3_PRO}",
-    "ANTHROPIC_DEFAULT_OPUS_MODEL": "${DEFAULT_MODELS.CLAUDE_OPUS_THINKING}",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL": "${DEFAULT_MODELS.CLAUDE_SONNET}",
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "${DEFAULT_MODELS.GEMINI_3_FLASH}"
+    "ANTHROPIC_MODEL": "THAY_TÊN_MODEL",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "THAY_TÊN_MODEL",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "THAY_TÊN_MODEL",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "THAY_TÊN_MODEL"
   }
 }`,
 
@@ -103,17 +103,8 @@ $env:ANTHROPIC_DEFAULT_HAIKU_MODEL="${DEFAULT_MODELS.GEMINI_3_FLASH}"`,
         "apiKey": "${API_CONFIG.DEFAULT_API_KEY}"
       },
       "models": {
-        "${DEFAULT_MODELS.CLAUDE_SONNET_THINKING}": {
-          "name": "Claude Sonnet 4.5 Thinking"
-        },
-        "${DEFAULT_MODELS.CLAUDE_OPUS_THINKING}": {
-          "name": "Claude Opus 4.5 Thinking"
-        },
-        "${DEFAULT_MODELS.GEMINI_3_FLASH}": {
-          "name": "Gemini 3 Flash"
-        },
-        "${DEFAULT_MODELS.GEMINI_3_PRO}": {
-          "name": "Gemini 3 Pro"
+        "THAY_TÊN_MODEL": {
+          "name": "Tên hiển thị model"
         }
       }
     }
@@ -123,19 +114,7 @@ $env:ANTHROPIC_DEFAULT_HAIKU_MODEL="${DEFAULT_MODELS.GEMINI_3_FLASH}"`,
   droidConfig: () => `{
   "custom_models": [
     {
-      "model": "${DEFAULT_MODELS.GEMINI_3_FLASH}",
-      "base_url": "${API_CONFIG.BASE_URL_V1}",
-      "api_key": "${API_CONFIG.DEFAULT_API_KEY}",
-      "provider": "openai"
-    },
-    {
-      "model": "${DEFAULT_MODELS.CLAUDE_OPUS_THINKING}",
-      "base_url": "${API_CONFIG.BASE_URL}",
-      "api_key": "${API_CONFIG.DEFAULT_API_KEY}",
-      "provider": "anthropic"
-    },
-    {
-      "model": "${DEFAULT_MODELS.GPT_OSS}",
+      "model": "THAY_TÊN_MODEL",
       "base_url": "${API_CONFIG.BASE_URL_V1}",
       "api_key": "${API_CONFIG.DEFAULT_API_KEY}",
       "provider": "openai"

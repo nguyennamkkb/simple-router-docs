@@ -8,7 +8,7 @@ const settingsJson = `{
       "api_url": "http://simpleverse.io.vn/router/v1",
       "available_models": [
         {
-          "name": "claude-3-5-sonnet",
+          "name": "THAY_TÊN_MODEL",
           "max_tokens": 4096
         }
       ]

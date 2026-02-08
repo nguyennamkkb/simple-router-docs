@@ -63,10 +63,16 @@ export function ClaudeCodePage() {
           <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
             Với nội dung:
           </p>
-          <CodeBlock code={codeExamples.claudeCodeSettings()} language="json" title="settings.json" className="max-w-2xl" />
-          <p className="text-xs text-slate-500 dark:text-slate-500 mt-3">
-            Xem <Link to="/docs/models" className="text-sky-600 hover:underline">danh sách model</Link> để thay thế model phù hợp với nhu cầu của bạn.
-          </p>
+          <CodeBlock code={codeExamples.claudeCodeSettings()} title="settings.json" className="max-w-2xl" />
+          <div className="mt-4 p-4 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 max-w-2xl">
+            <p className="text-sm text-amber-900 dark:text-amber-200 font-medium">
+              ⚠️ Lưu ý quan trọng: Bạn cần thay thế Model ID trong cấu hình bằng một trong các model từ{' '}
+              <Link to="/docs/models" className="text-amber-700 dark:text-amber-300 underline font-semibold">
+                danh sách model
+              </Link>{' '}
+              để hệ thống hoạt động.
+            </p>
+          </div>
         </StepSection>
 
         <StepSection step={4} title="Khởi chạy">

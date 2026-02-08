@@ -61,12 +61,18 @@ export function RooCodePage() {
               { field: 'API Provider', value: 'OpenAI Compatible' },
               { field: 'Base URL', value: API_CONFIG.BASE_URL_V1, isCode: true },
               { field: 'API Key', value: API_CONFIG.DEFAULT_API_KEY, isCode: true },
-              { field: 'Model ID', value: DEFAULT_MODELS.CLAUDE_SONNET_THINKING, isCode: true },
+              { field: 'Model ID', value: 'Chọn model trong danh sách' },
             ]}
           />
-          <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">
-            Xem <Link to="/docs/models" className="text-yellow-600 hover:underline">danh sách model</Link> để chọn model phù hợp.
-          </p>
+          <div className="mt-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 max-w-2xl">
+            <p className="text-sm text-blue-900 dark:text-blue-200 font-medium">
+              💡 Bạn sẽ chọn model từ danh sách có sẵn trong giao diện Roo Code. Xem{' '}
+              <Link to="/docs/models" className="text-blue-700 dark:text-blue-300 underline font-semibold">
+                danh sách model
+              </Link>{' '}
+              để biết các model khả dụng.
+            </p>
+          </div>
         </StepSection>
       </div>
     </div>

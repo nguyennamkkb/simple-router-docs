@@ -80,10 +80,18 @@ export function OpenCodePage() {
           </p>
           <CodeBlock tabs={configPathTabs} className="max-w-2xl mb-6" />
           <CodeBlock code={configJson} title="opencode.json" className="max-w-2xl" />
-          <p className="text-xs text-slate-500 dark:text-slate-500 mt-3 max-w-2xl">
-            Sau khi cấu hình, chạy lệnh <code className="bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded">/models</code> trong OpenCode để chọn model. 
-            Xem <Link to="/docs/models" className="text-emerald-600 hover:underline">danh sách model</Link> để biết thêm các model có sẵn.
+          <p className="text-sm text-muted-foreground mt-3 max-w-2xl">
+            Sau khi cấu hình, chạy lệnh <code className="bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded font-medium">/models</code> trong OpenCode để chọn model. 
           </p>
+          <div className="mt-4 p-4 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 max-w-2xl">
+            <p className="text-sm text-amber-900 dark:text-amber-200 font-medium">
+              ⚠️ Lưu ý quan trọng: Bạn cần thay thế Model ID trong cấu hình bằng một trong các model từ{' '}
+              <Link to="/docs/models" className="text-amber-700 dark:text-amber-300 underline font-semibold">
+                danh sách model
+              </Link>{' '}
+              để hệ thống hoạt động.
+            </p>
+          </div>
         </StepSection>
       </div>
     </div>

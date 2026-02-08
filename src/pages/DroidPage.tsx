@@ -86,8 +86,10 @@ export function DroidPage() {
               <li>Với model Claude, chọn <code className="bg-purple-100 dark:bg-purple-900/30 px-1 rounded">"provider": "anthropic"</code></li>
               <li>Với model Gemini và OpenAI, chọn <code className="bg-purple-100 dark:bg-purple-900/30 px-1 rounded">"provider": "openai"</code></li>
             </ul>
-            <p className="text-xs text-purple-900 dark:text-purple-200 mt-2">
-              Xem <Link to="/docs/models" className="text-purple-600 hover:underline">danh sách model</Link> để biết thêm các model có sẵn.
+            <p className="text-sm text-purple-900 dark:text-purple-200 mt-2">
+              ⚠️ Lưu ý: Bạn cần thay thế Model ID bằng một trong các model từ{' '}
+              <Link to="/docs/models" className="text-purple-600 underline font-semibold">danh sách model</Link>{' '}
+              để hệ thống hoạt động.
             </p>
           </div>
         </StepSection>

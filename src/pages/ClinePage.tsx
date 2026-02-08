@@ -64,9 +64,15 @@ export function ClinePage() {
               { field: 'Model ID', value: DEFAULT_MODELS.CLAUDE_SONNET_THINKING, isCode: true },
             ]}
           />
-          <p className="text-xs text-slate-500 dark:text-slate-500 mt-4">
-            Xem <Link to="/docs/models" className="text-indigo-600 hover:underline">danh sách model</Link> để chọn model phù hợp.
-          </p>
+          <div className="mt-4 p-4 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 max-w-2xl">
+            <p className="text-sm text-amber-900 dark:text-amber-200 font-medium">
+              ⚠️ Lưu ý quan trọng: Bạn cần thay thế Model ID trong cấu hình bằng một trong các model từ{' '}
+              <Link to="/docs/models" className="text-amber-700 dark:text-amber-300 underline font-semibold">
+                danh sách model
+              </Link>{' '}
+              để hệ thống hoạt động.
+            </p>
+          </div>
         </StepSection>
       </div>
     </div>

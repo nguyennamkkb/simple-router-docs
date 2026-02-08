@@ -71,6 +71,7 @@
   }
   html {
     scroll-behavior: smooth;
+    font-size: 18px; /* Tăng base font size từ 16px lên 18px */
   }
   body {
     @apply bg-background text-foreground;

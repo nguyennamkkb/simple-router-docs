@@ -8,9 +8,9 @@ interface ModelInfo {
   id: string;
   name: string;
   description: string;
-  category: 'claude' | 'gemini' | 'openai' | 'qwen';
+  category: 'claude' | 'gemini' | 'openai' | 'qwen' | 'gpt';
   features?: string[];
-  package: 'A' | 'K' | 'Q';
+  package: 'A' | 'K' | 'Q' | 'C';
 }
 
 const models: ModelInfo[] = [
@@ -113,22 +113,6 @@ const models: ModelInfo[] = [
     package: 'K',
   },
   {
-    id: 'k-kiro-claude-opus-4-5',
-    name: 'Claude Opus 4.5',
-    description: 'Model Claude Opus 4.5 mạnh mẽ cho các tác vụ phức tạp',
-    category: 'claude',
-    features: ['High Intelligence', 'Complex Reasoning', 'Premium'],
-    package: 'K',
-  },
-  {
-    id: 'k-kiro-claude-opus-4-5-agentic',
-    name: 'Claude Opus 4.5 Agentic',
-    description: 'Model Claude Opus 4.5 với khả năng agentic nâng cao',
-    category: 'claude',
-    features: ['Advanced Agentic', 'Complex Reasoning', 'Premium'],
-    package: 'K',
-  },
-  {
     id: 'k-kiro-claude-sonnet-4',
     name: 'Claude Sonnet 4',
     description: 'Model Claude Sonnet 4 cân bằng hiệu suất và tốc độ',
@@ -185,6 +169,79 @@ const models: ModelInfo[] = [
     features: ['Image Processing', 'Visual Recognition', 'Multimodal Understanding'],
     package: 'Q',
   },
+  // Package C models (GPT series)
+  {
+    id: 'c-gpt-5',
+    name: 'GPT-5',
+    description: 'Model GPT-5 thế hệ mới với khả năng suy luận và hiểu ngữ cảnh vượt trội',
+    category: 'gpt',
+    features: ['Advanced Reasoning', 'Context Understanding', 'General Purpose'],
+    package: 'C',
+  },
+  {
+    id: 'c-gpt-5-codex',
+    name: 'GPT-5 Codex',
+    description: 'Model GPT-5 tối ưu cho lập trình với khả năng sinh code chất lượng cao',
+    category: 'gpt',
+    features: ['Code Generation', 'Programming', 'Technical Tasks'],
+    package: 'C',
+  },
+  {
+    id: 'c-gpt-5-codex-mini',
+    name: 'GPT-5 Codex Mini',
+    description: 'Phiên bản nhẹ của GPT-5 Codex, nhanh và tiết kiệm chi phí',
+    category: 'gpt',
+    features: ['Lightweight', 'Fast Response', 'Cost Effective'],
+    package: 'C',
+  },
+  {
+    id: 'c-gpt-5.1',
+    name: 'GPT-5.1',
+    description: 'Model GPT-5.1 cải tiến với hiệu suất và độ chính xác cao hơn',
+    category: 'gpt',
+    features: ['Improved Performance', 'Higher Accuracy', 'Enhanced Reasoning'],
+    package: 'C',
+  },
+  {
+    id: 'c-gpt-5.1-codex',
+    name: 'GPT-5.1 Codex',
+    description: 'Model GPT-5.1 Codex với khả năng lập trình nâng cao',
+    category: 'gpt',
+    features: ['Advanced Coding', 'Code Review', 'Debugging'],
+    package: 'C',
+  },
+  {
+    id: 'c-gpt-5.1-codex-mini',
+    name: 'GPT-5.1 Codex Mini',
+    description: 'Phiên bản nhẹ của GPT-5.1 Codex cho các tác vụ lập trình đơn giản',
+    category: 'gpt',
+    features: ['Lightweight', 'Quick Tasks', 'Budget Friendly'],
+    package: 'C',
+  },
+  {
+    id: 'c-gpt-5.1-codex-max',
+    name: 'GPT-5.1 Codex Max',
+    description: 'Phiên bản cao cấp nhất của GPT-5.1 Codex với khả năng xử lý dự án lớn',
+    category: 'gpt',
+    features: ['Maximum Performance', 'Large Projects', 'Premium'],
+    package: 'C',
+  },
+  {
+    id: 'c-gpt-5.2',
+    name: 'GPT-5.2',
+    description: 'Model GPT-5.2 mới nhất với nhiều cải tiến về tốc độ và chất lượng',
+    category: 'gpt',
+    features: ['Latest Version', 'Speed Optimized', 'Quality Improved'],
+    package: 'C',
+  },
+  {
+    id: 'c-gpt-5.2-codex',
+    name: 'GPT-5.2 Codex',
+    description: 'Model GPT-5.2 Codex với khả năng lập trình tiên tiến nhất',
+    category: 'gpt',
+    features: ['State-of-the-art Coding', 'Multi-language', 'Advanced Analysis'],
+    package: 'C',
+  },
 ];
 
 const categoryColors = {
@@ -192,6 +249,7 @@ const categoryColors = {
   gemini: 'bg-emerald-500',
   openai: 'bg-purple-500',
   qwen: 'bg-orange-500',
+  gpt: 'bg-green-500',
 };
 
 const categoryLabels = {
@@ -199,6 +257,7 @@ const categoryLabels = {
   gemini: 'Gemini',
   openai: 'OpenAI',
   qwen: 'Qwen',
+  gpt: 'GPT',
 };
 
 function CopyButton({ text }: { text: string }) {
@@ -259,7 +318,7 @@ function ModelCard({ model }: { model: ModelInfo }) {
   );
 }
 
-function ModelList({ packageType }: { packageType: 'A' | 'K' | 'Q' }) {
+function ModelList({ packageType }: { packageType: 'A' | 'K' | 'Q' | 'C' }) {
   const filteredModels = models.filter(model => model.package === packageType);
   
   return (
@@ -302,6 +361,10 @@ export function ModelsPage() {
             <Package className="w-4 h-4 mr-2" />
             Gói Q
           </TabsTrigger>
+          <TabsTrigger value="C">
+            <Package className="w-4 h-4 mr-2" />
+            Gói C
+          </TabsTrigger>
         </TabsList>
 
         <TabsContent value="A">
@@ -312,6 +375,9 @@ export function ModelsPage() {
         </TabsContent>
         <TabsContent value="Q">
           <ModelList packageType="Q" />
+        </TabsContent>
+        <TabsContent value="C">
+          <ModelList packageType="C" />
         </TabsContent>
       </Tabs>
     </div>

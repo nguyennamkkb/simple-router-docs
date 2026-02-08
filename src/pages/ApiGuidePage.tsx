@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { API_CONFIG, DEFAULT_MODELS, codeExamples } from '@/lib/constants';
 
 const streamExample = `const stream = await client.chat.completions.create({
-  model: '${DEFAULT_MODELS.CLAUDE_SONNET_THINKING}',
+  model: 'THAY_TÊN_MODEL',
   messages: [
     { role: 'user', content: 'Viết một bài thơ ngắn' }
   ],
@@ -61,9 +61,15 @@ export function ApiGuidePage() {
               </div>
             </div>
           </div>
-          <p className="text-xs text-slate-500 dark:text-slate-500 mt-3">
-            Xem <Link to="/docs/models" className="text-brand hover:underline">danh sách model</Link> để chọn model phù hợp.
-          </p>
+          <div className="mt-4 p-4 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 max-w-2xl">
+            <p className="text-sm text-amber-900 dark:text-amber-200 font-medium">
+              ⚠️ Lưu ý quan trọng: Bạn cần thay thế Model ID trong request bằng một trong các model từ{' '}
+              <Link to="/docs/models" className="text-amber-700 dark:text-amber-300 underline font-semibold">
+                danh sách model
+              </Link>{' '}
+              để hệ thống hoạt động.
+            </p>
+          </div>
         </StepSection>
 
         <StepSection step={2} title="Chat Completions">

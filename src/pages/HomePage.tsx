@@ -10,7 +10,8 @@ const models = [
   { name: 'Claude Sonnet 4.5', color: 'text-orange-400' },
   { name: 'Gemini 3 Pro', color: 'text-blue-500' },
   { name: 'Gemini 3 Flash', color: 'text-blue-400' },
-  { name: 'GPT-OSS 120B', color: 'text-emerald-500' },
+  { name: 'GPT 5.2', color: 'text-green-500' },
+  { name: 'Codex 5.3', color: 'text-green-400' },
 ];
 
 const integrations = [
@@ -52,9 +53,9 @@ const packages = [
     color: 'text-blue-500',
     bgColor: 'bg-blue-500/10',
     features: [
-      'Hỗ trợ đến 240 yêu cầu/5 giờ',
-      'Hỗ trợ các mô hình Claude và Gemini mới nhất',
-      'Phù hợp với nhiều nhu cầu khác nhau',
+      { text: 'Hỗ trợ đến 240 yêu cầu/5 giờ' },
+      { text: 'Hỗ trợ các mô hình ', highlight: 'Claude và Gemini', suffix: ' mới nhất' },
+      { text: 'Phù hợp với nhiều nhu cầu khác nhau' },
     ],
   },
   {
@@ -63,9 +64,9 @@ const packages = [
     color: 'text-orange-500',
     bgColor: 'bg-orange-500/10',
     features: [
-      'Hỗ trợ các mô hình Claude Opus, Sonnet, Haiku 4.5 series',
-      'Tối đa 2000 yêu cầu/tháng',
-      'Phù hợp cho các tác vụ cường độ cao',
+      { text: 'Hỗ trợ các mô hình ', highlight: 'Claude Opus, Sonnet, Haiku 4.5', suffix: ' series' },
+      { text: 'Tối đa 2000 yêu cầu/tháng' },
+      { text: 'Phù hợp cho các tác vụ cường độ cao' },
     ],
   },
   {
@@ -74,9 +75,20 @@ const packages = [
     color: 'text-emerald-500',
     bgColor: 'bg-emerald-500/10',
     features: [
-      'Hỗ trợ các mô hình lập trình chuyên nghiệp Qwen Coder',
-      'Giới hạn 2000 yêu cầu/ngày',
-      'Phù hợp cho n8n, chatbot và các tác vụ lập trình hàng ngày',
+      { text: 'Hỗ trợ các mô hình lập trình chuyên nghiệp ', highlight: 'Qwen Coder' },
+      { text: 'Giới hạn 2000 yêu cầu/ngày' },
+      { text: 'Phù hợp cho n8n, chatbot và các tác vụ lập trình hàng ngày' },
+    ],
+  },
+  {
+    name: 'Gói C',
+    icon: Gauge,
+    color: 'text-green-500',
+    bgColor: 'bg-green-500/10',
+    features: [
+      { text: 'Hỗ trợ các mô hình ', highlight: 'GPT-5, GPT-5.1, GPT-5.2', suffix: ' series' },
+      { text: 'Bao gồm các phiên bản ', highlight: 'Codex', suffix: ' cho lập trình' },
+      { text: 'Phù hợp cho các tác vụ đa dạng và coding agent' },
     ],
   },
 ];
@@ -189,21 +201,30 @@ export function HomePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {packages.map((pkg) => (
             <Card key={pkg.name} className="hover:border-primary/50 hover:shadow-lg transition-all duration-300">
-              <CardHeader>
-                <div className={`w-12 h-12 rounded-xl ${pkg.bgColor} ${pkg.color} flex items-center justify-center mb-2`}>
-                  <pkg.icon className="w-6 h-6" />
+              <CardHeader className="pb-3">
+                <div className="flex items-center gap-3">
+                  <div className={`w-10 h-10 rounded-xl ${pkg.bgColor} ${pkg.color} flex items-center justify-center`}>
+                    <pkg.icon className="w-5 h-5" />
+                  </div>
+                  <CardTitle className={pkg.color}>{pkg.name}</CardTitle>
                 </div>
-                <CardTitle className={pkg.color}>{pkg.name}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="space-y-3">
+                <ul className="space-y-2">
                   {pkg.features.map((feature, idx) => (
-                    <CardDescription key={idx}>{feature}</CardDescription>
+                    <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-muted-foreground/50 shrink-0" />
+                      <span>
+                        {feature.text}
+                        {feature.highlight && <strong className="text-foreground">{feature.highlight}</strong>}
+                        {'suffix' in feature && feature.suffix}
+                      </span>
+                    </li>
                   ))}
-                </div>
+                </ul>
                 <Button asChild variant="outline" className="w-full">
                   <a href="https://t.me/simple_route_bot" target="_blank" rel="noopener noreferrer">
                     Đăng ký ngay
