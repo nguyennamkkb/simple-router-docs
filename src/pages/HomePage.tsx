@@ -54,8 +54,19 @@ const packages = [
     bgColor: 'bg-blue-500/10',
     features: [
       { text: 'Hỗ trợ đến 240 yêu cầu/5 giờ' },
-      { text: 'Hỗ trợ các mô hình ', highlight: 'Claude và Gemini', suffix: ' mới nhất' },
+      { text: 'Hỗ trợ các mô hình ', highlight: 'Claude Opus 4.5 và Gemini 3 Pro', suffix: ' mới nhất' },
       { text: 'Phù hợp với nhiều nhu cầu khác nhau' },
+    ],
+  },
+  {
+    name: 'Gói C',
+    icon: Gauge,
+    color: 'text-green-500',
+    bgColor: 'bg-green-500/10',
+    features: [
+      { text: 'Hỗ trợ các mô hình ', highlight: 'GPT-5, GPT-5.1, GPT-5.2', suffix: ' series' },
+      { text: 'Bao gồm các phiên bản ', highlight: 'Codex 5.3', suffix: ' cho lập trình' },
+      { text: 'Phù hợp cho các tác vụ đa dạng và coding agent' },
     ],
   },
   {
@@ -64,7 +75,7 @@ const packages = [
     color: 'text-orange-500',
     bgColor: 'bg-orange-500/10',
     features: [
-      { text: 'Hỗ trợ các mô hình ', highlight: 'Claude Opus, Sonnet, Haiku 4.5', suffix: ' series' },
+      { text: 'Hỗ trợ các mô hình ', highlight: 'Claude Sonnet, Haiku 4.5', suffix: ' series' },
       { text: 'Tối đa 2000 yêu cầu/tháng' },
       { text: 'Phù hợp cho các tác vụ cường độ cao' },
     ],
@@ -78,17 +89,6 @@ const packages = [
       { text: 'Hỗ trợ các mô hình lập trình chuyên nghiệp ', highlight: 'Qwen Coder' },
       { text: 'Giới hạn 2000 yêu cầu/ngày' },
       { text: 'Phù hợp cho n8n, chatbot và các tác vụ lập trình hàng ngày' },
-    ],
-  },
-  {
-    name: 'Gói C',
-    icon: Gauge,
-    color: 'text-green-500',
-    bgColor: 'bg-green-500/10',
-    features: [
-      { text: 'Hỗ trợ các mô hình ', highlight: 'GPT-5, GPT-5.1, GPT-5.2', suffix: ' series' },
-      { text: 'Bao gồm các phiên bản ', highlight: 'Codex', suffix: ' cho lập trình' },
-      { text: 'Phù hợp cho các tác vụ đa dạng và coding agent' },
     ],
   },
 ];
