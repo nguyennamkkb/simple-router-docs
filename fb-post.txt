@@ -2,9 +2,9 @@ COMMING SOON
 
 🚀 Simple Router - Cổng API hợp nhất cho AI Coding Agent
 
-✅ Truy cập Claude Opus 4.5, Gemini 3 Pro, GPT và nhiều model mới nhất
+✅ Truy cập Claude Opus 4.6, Gemini 3 Pro, GPT và nhiều model mới nhất
 ✅ OpenAI-compatible - hoạt động với mọi tool hỗ trợ OpenAI API
 
-Hỗ trợ: Claude Code • Cursor • OpenCode • Droid • Kilo Code • Roo Code • Cline
+Hỗ trợ: Claude Code • Cursor • OpenCode • Kilo Code • Roo Code • Cline
 Trang chủ: https://docs.simpleverse.io.vn/
 #AI #CodingAgent #ClaudeCode #Cursor #Developer #Vietnam

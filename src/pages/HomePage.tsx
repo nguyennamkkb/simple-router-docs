@@ -6,7 +6,7 @@ import { ArrowRight, Zap, Sparkles, Shield, Gauge, ChevronRight, Moon, Sun } fro
 import { useEffect, useState } from 'react';
 
 const models = [
-  { name: 'Claude Opus 4.5', color: 'text-orange-500' },
+  { name: 'Claude Opus 4.6', color: 'text-orange-500' },
   { name: 'Claude Sonnet 4.5', color: 'text-orange-400' },
   { name: 'Gemini 3 Pro', color: 'text-blue-500' },
   { name: 'Gemini 3 Flash', color: 'text-blue-400' },
@@ -17,7 +17,6 @@ const models = [
 const integrations = [
   { name: 'Claude Code', color: 'bg-blue-500' },
   { name: 'OpenCode', color: 'bg-emerald-500' },
-  { name: 'Droid', color: 'bg-purple-500' },
   { name: 'Kilo Code', color: 'bg-red-500' },
   { name: 'Roo Code', color: 'bg-yellow-500' },
   { name: 'Cline', color: 'bg-indigo-500' },
@@ -48,36 +47,14 @@ const features = [
 
 const packages = [
   {
-    name: 'Gói A',
-    icon: Sparkles,
-    color: 'text-blue-500',
-    bgColor: 'bg-blue-500/10',
-    features: [
-      { text: 'Hỗ trợ đến 240 yêu cầu/5 giờ' },
-      { text: 'Hỗ trợ các mô hình ', highlight: 'Claude Opus 4.5 và Gemini 3 Pro', suffix: ' mới nhất' },
-      { text: 'Phù hợp với nhiều nhu cầu khác nhau' },
-    ],
-  },
-  {
     name: 'Gói C',
     icon: Gauge,
     color: 'text-green-500',
     bgColor: 'bg-green-500/10',
     features: [
-      { text: 'Hỗ trợ các mô hình ', highlight: 'GPT-5, GPT-5.1, GPT-5.2', suffix: ' series' },
-      { text: 'Bao gồm các phiên bản ', highlight: 'Codex 5.3', suffix: ' cho lập trình' },
-      { text: 'Phù hợp cho các tác vụ đa dạng và coding agent' },
-    ],
-  },
-  {
-    name: 'Gói K',
-    icon: Zap,
-    color: 'text-orange-500',
-    bgColor: 'bg-orange-500/10',
-    features: [
-      { text: 'Hỗ trợ các mô hình ', highlight: 'Claude Sonnet, Haiku 4.5', suffix: ' series' },
-      { text: 'Tối đa 2000 yêu cầu/tháng' },
-      { text: 'Phù hợp cho các tác vụ cường độ cao' },
+      { text: 'Hỗ trợ các mô hình ', highlight: 'GPT-5, GPT-5.1, GPT-5.2, Codex 5.3', suffix: ' cho lập trình' },
+      { text: 'Khoảng 100 yêu cầu/5 giờ, có giới hạn tuần và gói quota ', highlight: 'x3, x5' },
+      { text: 'Phù hợp với đa tác vụ coding agent, OpenClaw' },
     ],
   },
   {
@@ -87,8 +64,30 @@ const packages = [
     bgColor: 'bg-emerald-500/10',
     features: [
       { text: 'Hỗ trợ các mô hình lập trình chuyên nghiệp ', highlight: 'Qwen Coder' },
-      { text: 'Giới hạn 2000 yêu cầu/ngày' },
-      { text: 'Phù hợp cho n8n, chatbot và các tác vụ lập trình hàng ngày' },
+      { text: 'Giới hạn 1000 yêu cầu/ngày' },
+      { text: '', highlight: 'Chỉ phù hợp với công cụ lập trình, coding agent' },
+    ],
+  },
+  {
+    name: 'Gói A',
+    icon: Sparkles,
+    color: 'text-blue-500',
+    bgColor: 'bg-blue-500/10',
+    features: [
+      { text: 'Hỗ trợ đến 240 yêu cầu/5 giờ' },
+      { text: 'Hỗ trợ các mô hình ', highlight: 'Claude Opus 4.6 và Gemini 3 Pro', suffix: ' mới nhất' },
+      { text: 'Phù hợp với nhiều nhu cầu khác nhau' },
+    ],
+  },
+  {
+    name: 'Gói K',
+    icon: Zap,
+    color: 'text-orange-500',
+    bgColor: 'bg-orange-500/10',
+    features: [
+      { text: 'Hỗ trợ các mô hình ', highlight: 'Claude Sonnet, Haiku 4.5', suffix: ' series' },
+      { text: 'Tối đa 1000 yêu cầu/tháng' },
+      { text: 'Phù hợp cho các tác vụ cường độ cao' },
     ],
   },
 ];

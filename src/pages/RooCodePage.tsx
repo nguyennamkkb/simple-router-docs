@@ -2,7 +2,7 @@ import { Badge } from '@/components/ui/badge';
 import { CodeBlock } from '@/components/docs/CodeBlock';
 import { StepSection, FeatureBox, ConfigTable } from '@/components/docs/StepSection';
 import { Link } from 'react-router-dom';
-import { API_CONFIG, DEFAULT_MODELS } from '@/lib/constants';
+import { API_CONFIG } from '@/lib/constants';
 
 export function RooCodePage() {
   return (

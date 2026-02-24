@@ -16,6 +16,22 @@ interface ModelInfo {
 const models: ModelInfo[] = [
   // Package A models (with a- prefix)
   {
+    id: 'a-gemini-3.1-pro-high',
+    name: 'Gemini 3.1 Pro High',
+    description: 'Model Gemini 3.1 Pro High tối ưu cho chất lượng phản hồi và suy luận nâng cao',
+    category: 'gemini',
+    features: ['High Quality', 'Advanced Reasoning', 'Pro'],
+    package: 'A',
+  },
+  {
+    id: 'a-gemini-3.1-pro-low',
+    name: 'Gemini 3.1 Pro Low',
+    description: 'Model Gemini 3.1 Pro Low cân bằng chi phí và hiệu năng cho tác vụ hằng ngày',
+    category: 'gemini',
+    features: ['Cost Efficient', 'Balanced', 'Pro'],
+    package: 'A',
+  },
+  {
     id: 'a-gemini-claude-sonnet-4-5-thinking',
     name: 'Claude Sonnet 4.5 Thinking',
     description: 'Model Claude Sonnet 4.5 với khả năng suy luận mở rộng (extended thinking)',
@@ -24,9 +40,9 @@ const models: ModelInfo[] = [
     package: 'A',
   },
   {
-    id: 'a-gemini-claude-opus-4-5-thinking',
-    name: 'Claude Opus 4.5 Thinking',
-    description: 'Model Claude Opus 4.5 cao cấp với khả năng suy luận mở rộng',
+    id: 'a-claude-opus-4-6-thinking',
+    name: 'Claude Opus 4.6 Thinking',
+    description: 'Model Claude Opus 4.6 cao cấp với khả năng suy luận mở rộng',
     category: 'claude',
     features: ['Extended Thinking', 'Complex Reasoning', 'Premium'],
     package: 'A',
@@ -146,6 +162,14 @@ const models: ModelInfo[] = [
   },
   // Package Q models
   {
+    id: 'q-coder-model',
+    name: 'Qwen 3.5 Plus',
+    description: 'Model Qwen 3.5 Plus cho lập trình nâng cao và xử lý tác vụ phức tạp',
+    category: 'qwen',
+    features: ['Advanced Coding', 'Qwen 3.5 Plus', 'High Performance'],
+    package: 'Q',
+  },
+  {
     id: 'q-qwen3-coder-flash',
     name: 'Qwen3 Coder Flash',
     description: 'Model lập trình nhanh nhẹn Qwen3 Coder cho các tác vụ đơn giản và yêu cầu hiệu suất cao',
@@ -242,7 +266,58 @@ const models: ModelInfo[] = [
     features: ['State-of-the-art Coding', 'Multi-language', 'Advanced Analysis'],
     package: 'C',
   },
+  {
+    id: 'c-gpt-5.3-codex',
+    name: 'GPT-5.3 Codex',
+    description: 'Model GPT-5.3 Codex phiên bản mới nhất với khả năng lập trình nâng cao',
+    category: 'gpt',
+    features: ['Latest Version', 'Advanced Coding', 'Enhanced Performance'],
+    package: 'C',
+  },
 ];
+
+const packageModelOrder: Record<'A' | 'K' | 'Q' | 'C', string[]> = {
+  C: [
+    'c-gpt-5.3-codex',
+    'c-gpt-5.2-codex',
+    'c-gpt-5.2',
+    'c-gpt-5.1-codex-max',
+    'c-gpt-5.1-codex',
+    'c-gpt-5.1-codex-mini',
+    'c-gpt-5.1',
+    'c-gpt-5-codex',
+    'c-gpt-5-codex-mini',
+    'c-gpt-5',
+  ],
+  Q: [
+    'q-coder-model',
+    'q-qwen3-coder-plus',
+    'q-qwen3-coder-flash',
+    'q-vision-model',
+  ],
+  A: [
+    'a-gemini-3.1-pro-high',
+    'a-gemini-3.1-pro-low',
+    'a-claude-opus-4-6-thinking',
+    'a-gemini-claude-sonnet-4-5-thinking',
+    'a-gemini-claude-sonnet-4-5',
+    'a-gemini-3-pro-image-preview',
+    'a-gemini-3-pro-preview',
+    'a-gemini-3-flash-preview',
+    'a-gemini-2.5-computer-use-preview-10-2025',
+    'a-gemini-2.5-flash',
+    'a-gemini-2.5-flash-lite',
+    'a-gpt-oss-120b-medium',
+  ],
+  K: [
+    'k-kiro-claude-sonnet-4-5-agentic',
+    'k-kiro-claude-sonnet-4-5',
+    'k-kiro-claude-haiku-4-5-agentic',
+    'k-kiro-claude-haiku-4-5',
+    'k-kiro-claude-sonnet-4-agentic',
+    'k-kiro-claude-sonnet-4',
+  ],
+};
 
 const categoryColors = {
   claude: 'bg-blue-500',
@@ -319,7 +394,13 @@ function ModelCard({ model }: { model: ModelInfo }) {
 }
 
 function ModelList({ packageType }: { packageType: 'A' | 'K' | 'Q' | 'C' }) {
-  const filteredModels = models.filter(model => model.package === packageType);
+  const packageModels = models.filter((model) => model.package === packageType);
+  const modelMap = new Map(packageModels.map((model) => [model.id, model]));
+  const orderedModels = packageModelOrder[packageType]
+    .map((id) => modelMap.get(id))
+    .filter((model): model is ModelInfo => Boolean(model));
+  const remainingModels = packageModels.filter((model) => !packageModelOrder[packageType].includes(model.id));
+  const filteredModels = [...orderedModels, ...remainingModels];
   
   return (
     <div className="space-y-4">
@@ -347,8 +428,16 @@ export function ModelsPage() {
         </p>
       </header>
 
-      <Tabs defaultValue="A">
+      <Tabs defaultValue="C">
         <TabsList className="mb-6">
+          <TabsTrigger value="C">
+            <Package className="w-4 h-4 mr-2" />
+            Gói C
+          </TabsTrigger>
+          <TabsTrigger value="Q">
+            <Package className="w-4 h-4 mr-2" />
+            Gói Q
+          </TabsTrigger>
           <TabsTrigger value="A">
             <Package className="w-4 h-4 mr-2" />
             Gói A
@@ -357,27 +446,19 @@ export function ModelsPage() {
             <Package className="w-4 h-4 mr-2" />
             Gói K
           </TabsTrigger>
-          <TabsTrigger value="Q">
-            <Package className="w-4 h-4 mr-2" />
-            Gói Q
-          </TabsTrigger>
-          <TabsTrigger value="C">
-            <Package className="w-4 h-4 mr-2" />
-            Gói C
-          </TabsTrigger>
         </TabsList>
 
+        <TabsContent value="C">
+          <ModelList packageType="C" />
+        </TabsContent>
+        <TabsContent value="Q">
+          <ModelList packageType="Q" />
+        </TabsContent>
         <TabsContent value="A">
           <ModelList packageType="A" />
         </TabsContent>
         <TabsContent value="K">
           <ModelList packageType="K" />
-        </TabsContent>
-        <TabsContent value="Q">
-          <ModelList packageType="Q" />
-        </TabsContent>
-        <TabsContent value="C">
-          <ModelList packageType="C" />
         </TabsContent>
       </Tabs>
     </div>

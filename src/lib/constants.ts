@@ -111,14 +111,4 @@ $env:ANTHROPIC_DEFAULT_HAIKU_MODEL="THAY_TÊN_MODEL"`,
   }
 }`,
 
-  droidConfig: () => `{
-  "custom_models": [
-    {
-      "model": "THAY_TÊN_MODEL",
-      "base_url": "${API_CONFIG.BASE_URL_V1}",
-      "api_key": "${API_CONFIG.DEFAULT_API_KEY}",
-      "provider": "openai"
-    }
-  ]
-}`,
 };

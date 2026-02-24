@@ -69,7 +69,7 @@ export function AmpPage() {
             <FeatureBox
               title="Model hỗ trợ"
               color="orange"
-              items={['Gemini 3 Pro/Flash Preview', 'Claude Sonnet/Opus 4.5', 'GPT-5, GPT-5 Codex']}
+              items={['Gemini 3 Pro/Flash Preview', 'Claude Sonnet/Opus 4.6', 'GPT-5, GPT-5 Codex']}
             />
           </div>
         </StepSection>

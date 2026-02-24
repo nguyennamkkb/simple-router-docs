@@ -14,7 +14,6 @@ export const integrationRoutes: RouteItem[] = [
   { path: '/docs/claude-code', label: 'Claude Code', color: 'bg-blue-500' },
   // { path: '/docs/cursor', label: 'Cursor', color: 'bg-pink-500' }, // Tạm ẩn theo yêu cầu
   { path: '/docs/opencode', label: 'OpenCode', color: 'bg-emerald-500' },
-  { path: '/docs/droid', label: 'Droid', color: 'bg-purple-500' },
   // { path: '/docs/amp', label: 'Amp', color: 'bg-orange-500' }, // Tạm ẩn - cấu hình phức tạp
   { path: '/docs/kilo', label: 'Kilo Code', color: 'bg-red-500' },
   { path: '/docs/roo-code', label: 'Roo Code', color: 'bg-yellow-500' },

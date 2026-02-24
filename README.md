@@ -10,14 +10,14 @@ Cổng API hợp nhất cho các AI coding agent. Một endpoint duy nhất đ�
 
 ## Model hỗ trợ
 
-- Claude Opus 4.5, Claude Sonnet 4.5
+- Claude Opus 4.6, Claude Sonnet 4.5
 - Gemini 3 Pro, Gemini 3 Flash
 - GPT-OSS 120B
 - Và nhiều model khác
 
 ## Tích hợp
 
-Claude Code • Cursor • OpenCode • Droid • Kilo Code • Roo Code • Cline
+Claude Code • Cursor • OpenCode • Kilo Code • Roo Code • Cline
 
 ## Bắt đầu
 

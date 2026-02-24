@@ -72,7 +72,6 @@ const routes = {
     '/': 'partials/home.html',
     '/claude-code': 'partials/claude-code.html',
     '/opencode': 'partials/opencode.html',
-    '/droid': 'partials/droid.html',
     '/amp': 'partials/amp.html',
     '/kilo': 'partials/kilo.html',
 

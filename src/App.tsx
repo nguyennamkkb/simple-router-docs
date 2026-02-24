@@ -6,7 +6,6 @@ import { ModelsPage } from '@/pages/ModelsPage';
 import { ApiGuidePage } from '@/pages/ApiGuidePage';
 import { ClaudeCodePage } from '@/pages/ClaudeCodePage';
 import { OpenCodePage } from '@/pages/OpenCodePage';
-import { DroidPage } from '@/pages/DroidPage';
 import { AmpPage } from '@/pages/AmpPage';
 import { KiloPage } from '@/pages/KiloPage';
 import { RooCodePage } from '@/pages/RooCodePage';
@@ -27,7 +26,6 @@ function App() {
           <Route path="api-guide" element={<ApiGuidePage />} />
           <Route path="claude-code" element={<ClaudeCodePage />} />
           <Route path="opencode" element={<OpenCodePage />} />
-          <Route path="droid" element={<DroidPage />} />
           <Route path="amp" element={<AmpPage />} />
           <Route path="kilo" element={<KiloPage />} />
           <Route path="roo-code" element={<RooCodePage />} />

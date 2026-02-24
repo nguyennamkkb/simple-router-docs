@@ -35,12 +35,6 @@ const integrations = [
     color: 'bg-emerald-500',
   },
   {
-    path: '/docs/droid',
-    title: 'Droid',
-    description: 'Agent coding của Factory',
-    color: 'bg-purple-500',
-  },
-  {
     path: '/docs/kilo',
     title: 'Kilo Code',
     description: 'Extension AI cho VS Code',
@@ -88,7 +82,7 @@ export function IntroPage() {
         </h1>
         <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
           Simple Router là cổng API hợp nhất cho các AI coding agent. Kết nối Claude Code, OpenCode và nhiều công cụ khác
-          với các model mới nhất: <span className="font-semibold text-blue-500">Claude Opus 4.5</span>,{' '}
+          với các model mới nhất: <span className="font-semibold text-blue-500">Claude Opus 4.6</span>,{' '}
           <span className="font-semibold text-emerald-500">Gemini 3 Pro</span>.
         </p>
       </header>
