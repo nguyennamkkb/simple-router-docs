@@ -235,6 +235,14 @@ const models: ModelInfo[] = [
     package: 'C',
   },
   {
+    id: 'c-gpt-5.4',
+    name: 'GPT-5.4',
+    description: 'Model GPT-5.4 phiên bản mới nhất với khả năng suy luận và hiểu ngữ cảnh vượt trội',
+    category: 'gpt',
+    features: ['Latest Version', 'Advanced Reasoning', 'Context Understanding'],
+    package: 'C',
+  },
+  {
     id: 'c-gpt-5.3-codex',
     name: 'GPT-5.3 Codex',
     description: 'Model GPT-5.3 Codex phiên bản mới nhất với khả năng lập trình nâng cao',
@@ -246,6 +254,7 @@ const models: ModelInfo[] = [
 
 const packageModelOrder: Record<'A' | 'K' | 'Q' | 'C', string[]> = {
   C: [
+    'c-gpt-5.4',
     'c-gpt-5.3-codex',
     'c-gpt-5.2-codex',
     'c-gpt-5.2',

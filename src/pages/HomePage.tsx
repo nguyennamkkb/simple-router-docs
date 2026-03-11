@@ -52,7 +52,7 @@ const packages = [
     color: 'text-green-500',
     bgColor: 'bg-green-500/10',
     features: [
-      { text: 'Hỗ trợ các mô hình ', highlight: 'GPT-5, GPT-5.1, GPT-5.2, Codex 5.3', suffix: ' cho lập trình' },
+      { text: 'Hỗ trợ các mô hình ', highlight: 'GPT 5.4, Codex 5.3', suffix: ' cho lập trình' },
       { text: 'Khoảng 100 yêu cầu/5 giờ, có giới hạn tuần và gói quota ', highlight: 'x3, x5' },
       { text: 'Phù hợp với đa tác vụ coding agent, OpenClaw' },
     ],
@@ -63,7 +63,7 @@ const packages = [
     color: 'text-emerald-500',
     bgColor: 'bg-emerald-500/10',
     features: [
-      { text: 'Hỗ trợ các mô hình lập trình chuyên nghiệp ', highlight: 'Qwen Coder' },
+      { text: 'Hỗ trợ các mô hình lập trình chuyên nghiệp ', highlight: 'Qwen 3.5 Plus' },
       { text: 'Giới hạn 1000 yêu cầu/ngày' },
       { text: '', highlight: 'Chỉ phù hợp với công cụ lập trình, coding agent' },
     ],
