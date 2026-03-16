@@ -337,7 +337,19 @@ function CopyButton({ text }: { text: string }) {
 function ModelCard({ model }: { model: ModelInfo }) {
   return (
     <Card>
-      <CardHeader className="pb-3">
+      <CardHeader className="pb-2">
+        {/* Model ID - Top & Prominent */}
+        <div className="mb-3">
+          <div className="text-xs text-muted-foreground font-medium mb-1.5">Model ID</div>
+          <div className="flex items-center gap-2 p-2.5 bg-primary/5 dark:bg-primary/10 rounded-md border border-primary/20">
+            <code className="text-sm font-mono font-semibold text-primary flex-1 break-all">
+              {model.id}
+            </code>
+            <CopyButton text={model.id} />
+          </div>
+        </div>
+        
+        {/* Model Name & Category */}
         <div className="flex items-center gap-2">
           <CardTitle className="text-lg">{model.name}</CardTitle>
           <span className={`px-2 py-0.5 rounded text-xs text-white ${categoryColors[model.category]}`}>
@@ -346,15 +358,7 @@ function ModelCard({ model }: { model: ModelInfo }) {
         </div>
         <CardDescription>{model.description}</CardDescription>
       </CardHeader>
-      <CardContent className="space-y-3">
-        {/* Model ID */}
-        <div className="flex items-center gap-2 p-2.5 bg-slate-50 dark:bg-slate-800/50 rounded-md border">
-          <code className="text-sm font-mono text-slate-700 dark:text-slate-200 flex-1 break-all">
-            {model.id}
-          </code>
-          <CopyButton text={model.id} />
-        </div>
-        
+      <CardContent>
         {model.features && (
           <div className="flex flex-wrap gap-2">
             {model.features.map((feature) => (
