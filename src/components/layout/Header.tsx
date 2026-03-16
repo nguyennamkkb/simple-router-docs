@@ -3,6 +3,8 @@ import { Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import { Separator } from '@/components/ui/separator';
+import { LanguageSwitcher } from '@/components/ui/language-switcher';
+import { useTranslation } from 'react-i18next';
 
 interface HeaderProps {
   isDark: boolean;
@@ -10,18 +12,20 @@ interface HeaderProps {
 }
 
 export function Header({ isDark, toggleTheme }: HeaderProps) {
+  const { t } = useTranslation();
+
   return (
     <header className="sticky top-0 z-40 flex h-14 shrink-0 items-center gap-2 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-4">
       <SidebarTrigger className="-ml-1" />
       <Separator orientation="vertical" className="mr-2 h-4 hidden md:block" />
-      
+
       <div className="flex flex-1 items-center justify-between">
         <nav className="hidden md:flex items-center gap-6">
           <Link
-            to="/"
+            to="/docs"
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
-            Tài liệu
+            {t('nav.docs')}
           </Link>
           <a
             href="https://t.me/simple_route_bot"
@@ -29,7 +33,7 @@ export function Header({ isDark, toggleTheme }: HeaderProps) {
             rel="noopener noreferrer"
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
-            Bắt đầu sử dụng
+            {t('nav.register')}
           </a>
         </nav>
 
@@ -39,6 +43,7 @@ export function Header({ isDark, toggleTheme }: HeaderProps) {
             <Moon className={`absolute w-4 h-4 transition-all ${isDark ? 'rotate-0 scale-100' : '-rotate-90 scale-0'}`} />
             <span className="sr-only">Toggle theme</span>
           </Button>
+          <LanguageSwitcher />
         </div>
       </div>
     </header>

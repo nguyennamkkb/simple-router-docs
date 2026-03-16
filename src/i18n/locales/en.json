@@ -1,0 +1,327 @@
+{
+  "app": {
+    "name": "Simple Router",
+    "tagline": "Unified API Gateway for AI Coding Agents",
+    "description": "A single endpoint to access Claude, Gemini, GPT and many other models."
+  },
+  "nav": {
+    "docs": "Docs",
+    "register": "Register",
+    "home": "Home",
+    "telegram": "Telegram Bot"
+  },
+  "sidebar": {
+    "menu": "Menu",
+    "intro": "Introduction",
+    "models": "Model List",
+    "apiGuide": "API Guide",
+    "integrations": "Integrations",
+    "links": "Links",
+    "home": "Home",
+    "telegram": "Telegram Bot"
+  },
+  "hero": {
+    "badge1": "Unified AI Gateway",
+    "badge2": "OpenAI Compatible",
+    "title": "Simple Router",
+    "subtitle": "Unified API Gateway for <highlight>AI Coding Agents</highlight>.",
+    "cta": "Register Now",
+    "viewDocs": "View Docs"
+  },
+  "packages": {
+    "title": "Service Plans",
+    "subtitle": "Flexible plans suitable for all needs: coding, n8n, chatbot",
+    "c": {
+      "name": "Plan C",
+      "features": [
+        "Supports models ",
+        " for programming",
+        "About 100 requests/5 hours, with weekly and quota limits ",
+        "Suitable for various coding agent tasks, OpenClaw"
+      ],
+      "highlights": ["GPT 5.4, Codex 5.3", "x3, x5"]
+    },
+    "q": {
+      "name": "Plan Q",
+      "features": [
+        "Supports professional programming models ",
+        "Limit 1000 requests/day",
+        "Only suitable for programming tools, coding agents"
+      ],
+      "highlights": ["Qwen 3.5 Plus", ""]
+    },
+    "a": {
+      "name": "Plan A",
+      "features": [
+        "Supports up to 240 requests/5 hours",
+        "Supports models ",
+        " latest",
+        "Suitable for various needs"
+      ],
+      "highlights": ["Claude Opus 4.6 and Gemini 3 Pro", ""]
+    },
+    "k": {
+      "name": "Plan K",
+      "features": [
+        "Supports models ",
+        " series",
+        "Maximum 1000 requests/month",
+        "Suitable for high-intensity tasks"
+      ],
+      "highlights": ["Claude Sonnet, Haiku 4.5", ""]
+    },
+    "registerButton": "Register Now"
+  },
+  "integrations": {
+    "title": "Integrates with popular tools",
+    "items": {
+      "claudeCode": "Claude Code",
+      "opencode": "OpenCode",
+      "kiloCode": "Kilo Code",
+      "rooCode": "Roo Code",
+      "cline": "Cline"
+    }
+  },
+  "features": {
+    "title": "Why Choose Simple Router?",
+    "subtitle": "Simple solution for complex needs",
+    "unified": {
+      "title": "Unified Access",
+      "description": "A single endpoint for Claude, Gemini, GPT and more. No need to manage multiple API keys."
+    },
+    "compatible": {
+      "title": "OpenAI Compatible",
+      "description": "Fully compatible with OpenAI API. Works with any tool that supports OpenAI."
+    },
+    "performance": {
+      "title": "Optimized Performance",
+      "description": "Low latency, smart caching. Optimized for AI coding agents."
+    },
+    "security": {
+      "title": "Safe & Secure",
+      "description": "Your data is protected. Conversation content is not stored."
+    }
+  },
+  "cta": {
+    "title": "Ready to Get Started?",
+    "subtitle": "Register via Telegram to get a free API key and start using it today.",
+    "button": "@simple_route_bot"
+  },
+  "footer": {
+    "copyright": "© 2025 Simpleverse. All rights reserved.",
+    "docs": "Docs",
+    "telegram": "Telegram"
+  },
+  "intro": {
+    "title": "Introduction",
+    "description": "Simple Router is a unified API gateway for AI coding agents. Connect Claude Code, OpenCode and many other tools with the latest models: <opus>Claude Opus 4.6</opus>, <gemini>Gemini 3 Pro</gemini>.",
+    "quickLinks": {
+      "models": {
+        "title": "Model List",
+        "description": "View all available AI models"
+      },
+      "apiGuide": {
+        "title": "API Guide",
+        "description": "Get started with OpenAI-compatible API"
+      }
+    },
+    "telegram": {
+      "title": "Register to Use",
+      "description": "Register via Telegram to get a free API key",
+      "button": "@simple_route_bot"
+    },
+    "integrations": {
+      "title": "Integrations",
+      "claudeCode": {
+        "title": "Claude Code",
+        "description": "Anthropic's CLI for terminal"
+      },
+      "opencode": {
+        "title": "OpenCode",
+        "description": "Open source AI agent for terminal"
+      },
+      "kilo": {
+        "title": "Kilo Code",
+        "description": "AI extension for VS Code"
+      },
+      "rooCode": {
+        "title": "Roo Code",
+        "description": "Autonomous agent for VS Code"
+      },
+      "cline": {
+        "title": "Cline",
+        "description": "Open source coding agent"
+      }
+    },
+    "why": {
+      "title": "Why Choose Simple Router?",
+      "unified": {
+        "title": "Unified Access",
+        "description": "A single endpoint for Claude, Gemini, GPT and more."
+      },
+      "performance": {
+        "title": "High Performance",
+        "description": "Optimized latency and smart caching for agents."
+      },
+      "security": {
+        "title": "Security",
+        "description": "Your data is protected."
+      }
+    }
+  },
+  "models": {
+    "badge": "Docs",
+    "title": "Model List",
+    "description": "AI models available on Simple Router. Use Model ID when configuring tools.",
+    "tabs": {
+      "c": "Plan C",
+      "q": "Plan Q",
+      "a": "Plan A",
+      "k": "Plan K"
+    },
+    "copy": "Copy Model ID",
+    "categories": {
+      "claude": "Claude",
+      "gemini": "Gemini",
+      "openai": "OpenAI",
+      "qwen": "Qwen",
+      "gpt": "GPT"
+    }
+  },
+  "apiGuide": {
+    "badge": "Docs",
+    "title": "API Guide",
+    "description": "Simple Router is compatible with OpenAI API. You can use any OpenAI library to connect.",
+    "steps": {
+      "step1": {
+        "title": "Connection Information",
+        "description": "Use the following information to connect to Simple Router:",
+        "labels": {
+          "baseUrl": "Base URL:",
+          "apiKey": "API Key:",
+          "model": "Model:"
+        },
+        "warning": "⚠️ Important: You need to replace the Model ID in the request with one of the models from the <link>model list</link> for the system to work."
+      },
+      "step2": {
+        "title": "Chat Completions",
+        "description": "Main endpoint to send messages and receive responses from models:"
+      },
+      "step3": {
+        "title": "Streaming",
+        "description": "To receive real-time responses, use the parameter <code>stream: true</code>:"
+      },
+      "step4": {
+        "title": "Supported Endpoints",
+        "description": "Simple Router supports the following endpoints:",
+        "endpoints": {
+          "chat": "Send messages and receive responses",
+          "models": "Get list of available models"
+        }
+      }
+    },
+    "tip": {
+      "text": "<strong>Detailed Documentation:</strong> Simple Router is fully compatible with OpenAI API. For more information about parameters and options, refer to the official documentation:",
+      "link": "OpenAI API Reference"
+    }
+  },
+  "claudeCode": {
+    "badge": "Setup Guide",
+    "title": "Claude Code Integration",
+    "description": "Comprehensive guide to setting up and optimizing Anthropic's Claude Code CLI with Simple Router.",
+    "steps": {
+      "step1": {
+        "title": "Introduction",
+        "description": "Claude Code is a revolutionary CLI tool that allows Claude to interact directly with your codebase, execute shell commands, and solve complex problems right in your terminal.",
+        "features": {
+          "title": "Features",
+          "items": ["Read/Write code context", "Run shell commands", "Search entire project"]
+        }
+      },
+      "step2": {
+        "title": "Quick Install",
+        "description": "Install Claude Code globally via your preferred package manager."
+      },
+      "step3": {
+        "title": "Configuration",
+        "description": "Create a <code>settings.json</code> file at the following path:",
+        "pathTitle": "File Path",
+        "warning": "⚠️ Important: You need to replace the Model ID in the configuration with one of the models from the <link>model list</link> for the system to work."
+      },
+      "step4": {
+        "title": "Launch",
+        "description": "After setup is complete, launch Claude Code:"
+      },
+      "step5": {
+        "title": "Security Confirmation",
+        "description": "When running the <code>claude</code> command for the first time, you will see a security confirmation screen. Press <strong>1</strong> to select \"Yes, proceed\" and continue.",
+        "note": "Claude Code needs permission to read, write, and execute files in the current directory. Only use with projects from trusted sources."
+      },
+      "step6": {
+        "title": "Complete",
+        "description": "When you see the screen below, you have successfully set up! You can now start using Claude Code."
+      }
+    },
+    "tip": {
+      "text": "<strong>Tip:</strong> Replace <code>{apiKey}</code> with your actual API key. You can get the key from <link>@simple_route_bot</link> on Telegram.",
+      "apiKey": "api-key-1"
+    }
+  },
+  "opencode": {
+    "badge": "Integration",
+    "title": "OpenCode Setup",
+    "description": "Configure OpenCode Agent to work seamlessly with Simple Router's unified API gateway.",
+    "steps": {
+      "step1": {
+        "title": "Introduction",
+        "description": "OpenCode is a powerful open source AI agent that runs in your terminal. By connecting it with Simple Router, you can orchestrate multiple models through a single configuration.",
+        "features": {
+          "title": "Benefits",
+          "items": ["Open Source & Local Priority", "Flexible Provider Configuration", "Full Filesystem Access"]
+        }
+      },
+      "step2": {
+        "title": "Installation",
+        "description": "Install OpenCode CLI. See more <link>official download page</link>."
+      },
+      "step3": {
+        "title": "Configuration",
+        "description": "Create a configuration file to point OpenCode to your Simple Router. See more <link>model configuration guide</link>.",
+        "note": "After configuration, run <code>/models</code> in OpenCode to select a model.",
+        "warning": "⚠️ Important: You need to replace the Model ID in the configuration with one of the models from the <link>model list</link> for the system to work."
+      }
+    }
+  },
+  "kilo": {
+    "badge": "Integration",
+    "title": "Kilo Code Setup",
+    "description": "Configure Kilo Code VS Code extension to work with Simple Router."
+  },
+  "rooCode": {
+    "badge": "Integration",
+    "title": "Roo Code Setup",
+    "description": "Configure Roo Code autonomous agent for VS Code with Simple Router."
+  },
+  "cline": {
+    "badge": "Integration",
+    "title": "Cline Setup",
+    "description": "Configure Cline open source coding agent with Simple Router."
+  },
+  "amp": {
+    "badge": "Integration",
+    "title": "Amp Setup",
+    "description": "Configure Amp agent with Simple Router."
+  },
+  "zed": {
+    "badge": "Integration",
+    "title": "Zed Setup",
+    "description": "Configure Zed editor with Simple Router."
+  },
+  "common": {
+    "registerNow": "Register Now",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "modelId": "Model ID:",
+    "warning": "⚠️ Important: You need to replace the Model ID with one from the <link>model list</link> for the system to work."
+  }
+}

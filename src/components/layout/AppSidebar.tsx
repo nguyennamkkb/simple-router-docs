@@ -13,21 +13,23 @@ import {
   SidebarFooter,
 } from '@/components/ui/sidebar';
 import { integrationRoutes } from '@/data/routes';
+import { useTranslation } from 'react-i18next';
 
 export function AppSidebar() {
   const location = useLocation();
+  const { t } = useTranslation();
 
   return (
     <Sidebar>
       <SidebarHeader className="p-4">
         <NavLink to="/" className="flex items-center gap-3 group">
-          <img 
-            src="/images/web-logo.png" 
-            alt="Simple Router" 
+          <img
+            src="/images/web-logo.png"
+            alt="Simple Router"
             className="w-9 h-9"
           />
           <span className="font-bold text-foreground text-lg tracking-tight">
-            Simple Router
+            {t('app.name')}
           </span>
         </NavLink>
       </SidebarHeader>
@@ -35,14 +37,14 @@ export function AppSidebar() {
       <SidebarContent className="scrollbar-thin">
         {/* Menu */}
         <SidebarGroup>
-          <SidebarGroupLabel>Menu</SidebarGroupLabel>
+          <SidebarGroupLabel>{t('sidebar.menu')}</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild isActive={location.pathname === '/docs'}>
                   <NavLink to="/docs" className="transition-all duration-200">
                     <Info className="w-4 h-4" />
-                    <span>Giới thiệu</span>
+                    <span>{t('sidebar.intro')}</span>
                   </NavLink>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -50,7 +52,7 @@ export function AppSidebar() {
                 <SidebarMenuButton asChild isActive={location.pathname === '/docs/models'}>
                   <NavLink to="/docs/models" className="transition-all duration-200">
                     <Layers className="w-4 h-4" />
-                    <span>Danh sách Model</span>
+                    <span>{t('sidebar.models')}</span>
                   </NavLink>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -58,7 +60,7 @@ export function AppSidebar() {
                 <SidebarMenuButton asChild isActive={location.pathname === '/docs/api-guide'}>
                   <NavLink to="/docs/api-guide" className="transition-all duration-200">
                     <Code className="w-4 h-4" />
-                    <span>Hướng dẫn API</span>
+                    <span>{t('sidebar.apiGuide')}</span>
                   </NavLink>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -68,7 +70,7 @@ export function AppSidebar() {
 
         {/* Integrations */}
         <SidebarGroup>
-          <SidebarGroupLabel>Tích hợp</SidebarGroupLabel>
+          <SidebarGroupLabel>{t('sidebar.integrations')}</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {integrationRoutes.map((route) => (
@@ -87,27 +89,27 @@ export function AppSidebar() {
 
         {/* Quick Links */}
         <SidebarGroup className="mt-auto">
-          <SidebarGroupLabel>Liên kết</SidebarGroupLabel>
+          <SidebarGroupLabel>{t('sidebar.links')}</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
                   <NavLink to="/" className="transition-all duration-200">
                     <Home className="w-4 h-4" />
-                    <span>Trang chủ</span>
+                    <span>{t('sidebar.home')}</span>
                   </NavLink>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <a 
-                    href="https://t.me/simple_route_bot" 
-                    target="_blank" 
+                  <a
+                    href="https://t.me/simple_route_bot"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="transition-all duration-200"
                   >
                     <ExternalLink className="w-4 h-4" />
-                    <span>Telegram Bot</span>
+                    <span>{t('sidebar.telegram')}</span>
                   </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>

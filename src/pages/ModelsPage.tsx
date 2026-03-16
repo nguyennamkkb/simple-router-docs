@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useState } from 'react';
 import { Copy, Check, Package } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface ModelInfo {
   id: string;
@@ -333,6 +334,8 @@ function CopyButton({ text }: { text: string }) {
 }
 
 function ModelCard({ model }: { model: ModelInfo }) {
+  const { t } = useTranslation();
+
   return (
     <Card>
       <CardHeader className="pb-3">
@@ -346,7 +349,7 @@ function ModelCard({ model }: { model: ModelInfo }) {
       </CardHeader>
       <CardContent className="space-y-3">
         <div className="flex items-center gap-2">
-          <span className="text-xs text-muted-foreground font-medium">Model ID:</span>
+          <span className="text-xs text-muted-foreground font-medium">{t('common.modelId')}</span>
           <code className="text-sm bg-muted px-2 py-1 rounded font-mono">
             {model.id}
           </code>
@@ -385,19 +388,21 @@ function ModelList({ packageType }: { packageType: 'A' | 'K' | 'Q' | 'C' }) {
 }
 
 export function ModelsPage() {
+  const { t } = useTranslation();
+
   return (
     <div>
       <header className="mb-10 pb-8 border-b">
         <div className="flex items-center gap-2 mb-4">
           <Badge variant="secondary" className="text-brand bg-brand/10">
-            Tài liệu
+            {t('models.badge')}
           </Badge>
         </div>
         <h1 className="text-3xl font-bold tracking-tight mb-4">
-          Danh sách Model
+          {t('models.title')}
         </h1>
         <p className="text-base text-muted-foreground">
-          Các model AI có sẵn trên Simple Router. Sử dụng Model ID khi cấu hình các công cụ.
+          {t('models.description')}
         </p>
       </header>
 
@@ -405,19 +410,19 @@ export function ModelsPage() {
         <TabsList className="mb-6">
           <TabsTrigger value="C">
             <Package className="w-4 h-4 mr-2" />
-            Gói C
+            {t('models.tabs.c')}
           </TabsTrigger>
           <TabsTrigger value="Q">
             <Package className="w-4 h-4 mr-2" />
-            Gói Q
+            {t('models.tabs.q')}
           </TabsTrigger>
           <TabsTrigger value="A">
             <Package className="w-4 h-4 mr-2" />
-            Gói A
+            {t('models.tabs.a')}
           </TabsTrigger>
           <TabsTrigger value="K">
             <Package className="w-4 h-4 mr-2" />
-            Gói K
+            {t('models.tabs.k')}
           </TabsTrigger>
         </TabsList>
 
