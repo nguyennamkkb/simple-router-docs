@@ -322,7 +322,7 @@ function CopyButton({ text }: { text: string }) {
   return (
     <button
       onClick={handleCopy}
-      className="p-1.5 rounded hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-slate-500 hover:text-slate-700 dark:hover:text-slate-200"
+      className="p-1.5 rounded-md hover:bg-accent hover:text-accent-foreground transition-colors"
       title={copied ? t('common.copied') : t('common.copy')}
     >
       {copied ? (
@@ -341,8 +341,8 @@ function ModelCard({ model }: { model: ModelInfo }) {
         {/* Model ID - Top & Prominent */}
         <div className="mb-3">
           <div className="text-xs text-muted-foreground font-medium mb-1.5">Model ID</div>
-          <div className="flex items-center gap-2 p-2.5 bg-primary/5 dark:bg-primary/10 rounded-md border border-primary/20">
-            <code className="text-sm font-mono font-semibold text-primary flex-1 break-all">
+          <div className="flex items-center gap-2 p-2.5 rounded-md border bg-muted/50">
+            <code className="text-sm font-mono font-semibold text-foreground flex-1 break-all">
               {model.id}
             </code>
             <CopyButton text={model.id} />
