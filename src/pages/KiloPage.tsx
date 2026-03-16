@@ -1,78 +1,57 @@
 import { Badge } from '@/components/ui/badge';
-import { CodeBlock } from '@/components/docs/CodeBlock';
-import { StepSection, FeatureBox, ConfigTable } from '@/components/docs/StepSection';
-import { Link } from 'react-router-dom';
-import { API_CONFIG } from '@/lib/constants';
+import { StepSection, FeatureBox } from '@/components/docs/StepSection';
+import { useTranslation } from 'react-i18next';
 
 export function KiloPage() {
+  const { t } = useTranslation();
+
   return (
     <div>
       <header className="mb-10 pb-8 border-b border-slate-100 dark:border-slate-800">
         <div className="flex items-center gap-2 mb-4">
           <Badge variant="secondary" className="text-red-500 bg-red-50 dark:bg-red-900/10">
-            Tích hợp
+            {t('kilo.badge')}
           </Badge>
         </div>
         <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
-          Tích hợp Kilo Code
+          {t('kilo.title')}
         </h1>
         <p className="text-base text-slate-600 dark:text-slate-400">
-          Một tiện ích mở rộng agent lập trình AI mạnh mẽ cho VS Code.
+          {t('kilo.description')}
         </p>
       </header>
 
       <div className="space-y-12">
-        <StepSection step={1} title="Giới thiệu">
+        <StepSection step={1} title={t('kilo.steps.step1.title')}>
           <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mb-6">
-            Kilo Code là một tiện ích mở rộng VS Code giúp đưa các agent AI tự chủ vào trình soạn thảo của bạn. Cấu
-            hình nó để định tuyến các yêu cầu thông qua Simple Router để quản lý thống nhất.
+            {t('kilo.steps.step1.description')}
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <FeatureBox
-              title="Khả năng"
+              title={t('kilo.steps.step1.features.title')}
               color="red"
-              items={['Đa chế độ (Code, Architect, Debug)', 'Hỗ trợ Model Cục bộ', 'Cổng API Tùy chỉnh']}
+              items={[
+                t('kilo.steps.step1.features.items.0'),
+                t('kilo.steps.step1.features.items.1'),
+                t('kilo.steps.step1.features.items.2'),
+              ]}
             />
           </div>
         </StepSection>
 
-        <StepSection step={2} title="Cài đặt">
+        <StepSection step={2} title={t('kilo.steps.step2.title')}>
           <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">
-            Cài đặt tiện ích mở rộng trực tiếp từ VS Code Marketplace.
-          </p>
-          <CodeBlock code="ext install kilo-code.kilo" title="VS Code Marketplace" className="max-w-2xl" />
-          <p className="text-xs text-slate-500 mt-4 italic">
-            Hoặc tìm kiếm "Kilo Code" trong chế độ xem Extensions (Ctrl+Shift+X).
+            {t('kilo.steps.step2.description')}
           </p>
         </StepSection>
 
-        <StepSection step={3} title="Cấu hình">
+        <StepSection step={3} title={t('kilo.steps.step3.title')}>
           <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">
-            Trỏ Kilo Code đến endpoint Simple Router của bạn.
+            {t('kilo.steps.step3.description')}
           </p>
-          <ol className="list-decimal list-inside text-sm text-slate-600 dark:text-slate-400 space-y-2 mb-6 ml-4">
-            <li>Mở Cài đặt Kilo Code (biểu tượng bánh răng trong bảng Kilo).</li>
-            <li>Đi tới phần <strong>API Provider</strong>.</li>
-            <li>Chọn <strong>OpenAI Compatible</strong> (hoặc Custom).</li>
-            <li>Nhập các chi tiết sau:</li>
-          </ol>
-          <ConfigTable
-            rows={[
-              { field: 'API Provider', value: 'OpenAI Compatible' },
-              { field: 'Base URL', value: API_CONFIG.BASE_URL_V1, isCode: true },
-              { field: 'API Key', value: API_CONFIG.DEFAULT_API_KEY, isCode: true },
-              { field: 'Model ID', value: 'Chọn model trong danh sách' },
-            ]}
-          />
-          <div className="mt-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 max-w-2xl">
-            <p className="text-sm text-blue-900 dark:text-blue-200 font-medium">
-              💡 Bạn sẽ chọn model từ danh sách có sẵn trong giao diện Kilo Code. Xem{' '}
-              <Link to="/docs/models" className="text-blue-700 dark:text-blue-300 underline font-semibold">
-                danh sách model
-              </Link>{' '}
-              để biết các model khả dụng.
-            </p>
-          </div>
+          <p className="text-sm text-muted-foreground mt-3 max-w-2xl">
+            {t('kilo.steps.step3.note')}
+          </p>
         </StepSection>
       </div>
     </div>

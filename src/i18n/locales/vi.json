@@ -295,17 +295,74 @@
   "kilo": {
     "badge": "Tích hợp",
     "title": "Cài đặt Kilo Code",
-    "description": "Cấu hình extension Kilo Code VS Code để hoạt động với Simple Router."
+    "description": "Cấu hình extension Kilo Code VS Code để hoạt động với Simple Router.",
+    "steps": {
+      "step1": {
+        "title": "Giới thiệu",
+        "description": "Kilo Code là một extension VS Code mạnh mẽ đưa các agent AI tự chủ vào trình soạn thảo của bạn. Cấu hình nó để định tuyến yêu cầu qua Simple Router để quản lý thống nhất.",
+        "features": {
+          "title": "Khả năng",
+          "items": ["Đa chế độ (Code, Architect, Debug)", "Hỗ trợ Model Cục bộ", "Cổng API Tùy chỉnh"]
+        }
+      },
+      "step2": {
+        "title": "Cài đặt",
+        "description": "Cài đặt Kilo Code từ VS Code marketplace hoặc Open VSX registry."
+      },
+      "step3": {
+        "title": "Cấu hình",
+        "description": "Mở cài đặt VS Code và cấu hình Kilo Code để sử dụng Simple Router:",
+        "note": "Thay thế model IDs bằng các model thực tế từ danh sách model."
+      }
+    }
   },
   "rooCode": {
     "badge": "Tích hợp",
     "title": "Cài đặt Roo Code",
-    "description": "Cấu hình agent tự chủ Roo Code cho VS Code với Simple Router."
+    "description": "Cấu hình agent tự chủ Roo Code cho VS Code với Simple Router.",
+    "steps": {
+      "step1": {
+        "title": "Giới thiệu",
+        "description": "Roo Code là một agent AI tự chủ hoàn toàn hoạt động trong trình soạn thảo của bạn. Bằng cách kết nối nó với Simple Router, bạn có được kiểm soát tập trung các model và chi phí.",
+        "features": {
+          "title": "Khả năng",
+          "items": ["Truy cập Dòng lệnh", "Thao tác File I/O", "Tự động hóa Trình duyệt"]
+        }
+      },
+      "step2": {
+        "title": "Cài đặt",
+        "description": "Cài đặt Roo Code từ VS Code marketplace."
+      },
+      "step3": {
+        "title": "Cấu hình",
+        "description": "Cấu hình Roo Code để sử dụng Simple Router làm nhà cung cấp API của bạn.",
+        "note": "Đảm bảo chọn model phù hợp cho các tác vụ của bạn."
+      }
+    }
   },
   "cline": {
     "badge": "Tích hợp",
     "title": "Cài đặt Cline",
-    "description": "Cấu hình agent lập trình mã nguồn mở Cline với Simple Router."
+    "description": "Cấu hình agent lập trình mã nguồn mở Cline với Simple Router.",
+    "steps": {
+      "step1": {
+        "title": "Giới thiệu",
+        "description": "Cline là một trợ lý AI mã nguồn mở có khả năng xử lý các tác vụ phát triển phần mềm phức tạp. Kết nối nó với Simple Router để điều phối việc sử dụng model hiệu quả.",
+        "features": {
+          "title": "Tính năng chính",
+          "items": ["Thực thi Terminal", "Tạo & Chỉnh sửa Tệp", "Tự động hóa Trình duyệt"]
+        }
+      },
+      "step2": {
+        "title": "Cài đặt",
+        "description": "Cài đặt Cline từ VS Code marketplace."
+      },
+      "step3": {
+        "title": "Cấu hình",
+        "description": "Cấu hình Cline để sử dụng Simple Router làm điểm cuối API của bạn.",
+        "note": "Sử dụng model ID phù hợp cho các tác vụ lập trình của bạn."
+      }
+    }
   },
   "amp": {
     "badge": "Tích hợp",

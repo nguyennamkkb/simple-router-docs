@@ -295,17 +295,74 @@
   "kilo": {
     "badge": "Integration",
     "title": "Kilo Code Setup",
-    "description": "Configure Kilo Code VS Code extension to work with Simple Router."
+    "description": "Configure Kilo Code VS Code extension to work with Simple Router.",
+    "steps": {
+      "step1": {
+        "title": "Introduction",
+        "description": "Kilo Code is a powerful VS Code extension that brings autonomous AI agents into your editor. Configure it to route requests through Simple Router for unified management.",
+        "features": {
+          "title": "Capabilities",
+          "items": ["Multi-mode (Code, Architect, Debug)", "Local Model Support", "Custom API Gateway"]
+        }
+      },
+      "step2": {
+        "title": "Installation",
+        "description": "Install Kilo Code from the VS Code marketplace or Open VSX registry."
+      },
+      "step3": {
+        "title": "Configuration",
+        "description": "Open VS Code settings and configure Kilo Code to use Simple Router:",
+        "note": "Replace model IDs with actual models from the model list."
+      }
+    }
   },
   "rooCode": {
     "badge": "Integration",
     "title": "Roo Code Setup",
-    "description": "Configure Roo Code autonomous agent for VS Code with Simple Router."
+    "description": "Configure Roo Code autonomous agent for VS Code with Simple Router.",
+    "steps": {
+      "step1": {
+        "title": "Introduction",
+        "description": "Roo Code is a fully autonomous AI agent that works in your editor. By connecting it with Simple Router, you get centralized control over models and costs.",
+        "features": {
+          "title": "Capabilities",
+          "items": ["Command Line Access", "File I/O Operations", "Browser Automation"]
+        }
+      },
+      "step2": {
+        "title": "Installation",
+        "description": "Install Roo Code from the VS Code marketplace."
+      },
+      "step3": {
+        "title": "Configuration",
+        "description": "Configure Roo Code to use Simple Router as your API provider.",
+        "note": "Make sure to select the appropriate model for your tasks."
+      }
+    }
   },
   "cline": {
     "badge": "Integration",
     "title": "Cline Setup",
-    "description": "Configure Cline open source coding agent with Simple Router."
+    "description": "Configure Cline open source coding agent with Simple Router.",
+    "steps": {
+      "step1": {
+        "title": "Introduction",
+        "description": "Cline is an open source AI assistant capable of handling complex software development tasks. Connect it to Simple Router for efficient model orchestration.",
+        "features": {
+          "title": "Key Features",
+          "items": ["Terminal Execution", "File Creation & Editing", "Browser Automation"]
+        }
+      },
+      "step2": {
+        "title": "Installation",
+        "description": "Install Cline from the VS Code marketplace."
+      },
+      "step3": {
+        "title": "Configuration",
+        "description": "Configure Cline to use Simple Router as your API endpoint.",
+        "note": "Use the appropriate model ID for your coding tasks."
+      }
+    }
   },
   "amp": {
     "badge": "Integration",

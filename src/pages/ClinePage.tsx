@@ -1,78 +1,57 @@
 import { Badge } from '@/components/ui/badge';
-import { CodeBlock } from '@/components/docs/CodeBlock';
-import { StepSection, FeatureBox, ConfigTable } from '@/components/docs/StepSection';
-import { Link } from 'react-router-dom';
-import { API_CONFIG, DEFAULT_MODELS } from '@/lib/constants';
+import { StepSection, FeatureBox } from '@/components/docs/StepSection';
+import { useTranslation } from 'react-i18next';
 
 export function ClinePage() {
+  const { t } = useTranslation();
+
   return (
     <div>
       <header className="mb-10 pb-8 border-b border-slate-100 dark:border-slate-800">
         <div className="flex items-center gap-2 mb-4">
           <Badge variant="secondary" className="text-indigo-500 bg-indigo-50 dark:bg-indigo-900/10">
-            Tích hợp
+            {t('cline.badge')}
           </Badge>
         </div>
         <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
-          Tích hợp Cline
+          {t('cline.title')}
         </h1>
         <p className="text-base text-slate-600 dark:text-slate-400">
-          Agent lập trình tự chủ hoạt động ngay trong IDE của bạn.
+          {t('cline.description')}
         </p>
       </header>
 
       <div className="space-y-12">
-        <StepSection step={1} title="Giới thiệu">
+        <StepSection step={1} title={t('cline.steps.step1.title')}>
           <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mb-6">
-            Cline là một trợ lý AI mã nguồn mở có khả năng xử lý các tác vụ phát triển phần mềm phức tạp. Kết nối nó
-            với Simple Router để điều phối việc sử dụng model một cách hiệu quả.
+            {t('cline.steps.step1.description')}
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <FeatureBox
-              title="Tính năng chính"
+              title={t('cline.steps.step1.features.title')}
               color="indigo"
-              items={['Thực thi Terminal', 'Tạo & Chỉnh sửa Tệp', 'Tự động hóa Trình duyệt']}
+              items={[
+                t('cline.steps.step1.features.items.0'),
+                t('cline.steps.step1.features.items.1'),
+                t('cline.steps.step1.features.items.2'),
+              ]}
             />
           </div>
         </StepSection>
 
-        <StepSection step={2} title="Cài đặt">
+        <StepSection step={2} title={t('cline.steps.step2.title')}>
           <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">
-            Cài đặt Cline trực tiếp từ VS Code Marketplace.
-          </p>
-          <CodeBlock code="ext install saoudrizwan.claude-dev" title="VS Code Marketplace" className="max-w-2xl" />
-          <p className="text-xs text-slate-500 mt-4 italic">
-            Hoặc tìm kiếm "Cline" trong chế độ xem Extensions.
+            {t('cline.steps.step2.description')}
           </p>
         </StepSection>
 
-        <StepSection step={3} title="Cấu hình">
+        <StepSection step={3} title={t('cline.steps.step3.title')}>
           <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">
-            Thiết lập Cline với OpenAI Compatible Provider trỏ tới Simple Router.
+            {t('cline.steps.step3.description')}
           </p>
-          <ol className="list-decimal list-inside text-sm text-slate-600 dark:text-slate-400 space-y-2 mb-6 ml-4">
-            <li>Nhấp vào biểu tượng Cline trong thanh bên.</li>
-            <li>Mở Cài đặt (biểu tượng bánh răng).</li>
-            <li>Đặt <strong>API Provider</strong> thành <code className="text-xs bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">OpenAI Compatible</code>.</li>
-            <li>Nhập các chi tiết sau:</li>
-          </ol>
-          <ConfigTable
-            rows={[
-              { field: 'API Provider', value: 'OpenAI Compatible' },
-              { field: 'Base URL', value: API_CONFIG.BASE_URL_V1, isCode: true },
-              { field: 'API Key', value: API_CONFIG.DEFAULT_API_KEY, isCode: true },
-              { field: 'Model ID', value: DEFAULT_MODELS.CLAUDE_SONNET_THINKING, isCode: true },
-            ]}
-          />
-          <div className="mt-4 p-4 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 max-w-2xl">
-            <p className="text-sm text-amber-900 dark:text-amber-200 font-medium">
-              ⚠️ Lưu ý quan trọng: Bạn cần thay thế Model ID trong cấu hình bằng một trong các model từ{' '}
-              <Link to="/docs/models" className="text-amber-700 dark:text-amber-300 underline font-semibold">
-                danh sách model
-              </Link>{' '}
-              để hệ thống hoạt động.
-            </p>
-          </div>
+          <p className="text-sm text-muted-foreground mt-3 max-w-2xl">
+            {t('cline.steps.step3.note')}
+          </p>
         </StepSection>
       </div>
     </div>
