@@ -322,27 +322,21 @@ function CopyButton({ text }: { text: string }) {
   return (
     <button
       onClick={handleCopy}
-      className={`p-2 rounded-md transition-all duration-200 hover:scale-105 ${
-        copied 
-          ? 'bg-green-500/20 text-green-600 dark:text-green-400' 
-          : 'bg-primary/10 text-primary hover:bg-primary/20'
-      }`}
+      className="p-1.5 rounded hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-slate-500 hover:text-slate-700 dark:hover:text-slate-200"
       title={copied ? t('common.copied') : t('common.copy')}
     >
       {copied ? (
-        <Check className="w-4 h-4" />
+        <Check className="w-3.5 h-3.5 text-green-600 dark:text-green-400" />
       ) : (
-        <Copy className="w-4 h-4" />
+        <Copy className="w-3.5 h-3.5" />
       )}
     </button>
   );
 }
 
 function ModelCard({ model }: { model: ModelInfo }) {
-  const { t } = useTranslation();
-
   return (
-    <Card className="hover:shadow-md transition-shadow">
+    <Card>
       <CardHeader className="pb-3">
         <div className="flex items-center gap-2">
           <CardTitle className="text-lg">{model.name}</CardTitle>
@@ -353,17 +347,12 @@ function ModelCard({ model }: { model: ModelInfo }) {
         <CardDescription>{model.description}</CardDescription>
       </CardHeader>
       <CardContent className="space-y-3">
-        {/* Model ID - Prominent Display */}
-        <div className="p-3 bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg border border-primary/20">
-          <div className="flex items-center justify-between gap-2 mb-1">
-            <span className="text-xs font-semibold text-primary uppercase tracking-wide">
-              {t('common.modelId')}
-            </span>
-            <CopyButton text={model.id} />
-          </div>
-          <code className="text-base font-mono font-bold text-foreground break-all block">
+        {/* Model ID */}
+        <div className="flex items-center gap-2 p-2.5 bg-slate-50 dark:bg-slate-800/50 rounded-md border">
+          <code className="text-sm font-mono text-slate-700 dark:text-slate-200 flex-1 break-all">
             {model.id}
           </code>
+          <CopyButton text={model.id} />
         </div>
         
         {model.features && (
