@@ -311,6 +311,7 @@ const categoryLabels = {
 
 function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
+  const { t } = useTranslation();
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(text);
@@ -321,13 +322,17 @@ function CopyButton({ text }: { text: string }) {
   return (
     <button
       onClick={handleCopy}
-      className="p-1.5 rounded-md hover:bg-muted transition-colors"
-      title="Copy Model ID"
+      className={`p-2 rounded-md transition-all duration-200 hover:scale-105 ${
+        copied 
+          ? 'bg-green-500/20 text-green-600 dark:text-green-400' 
+          : 'bg-primary/10 text-primary hover:bg-primary/20'
+      }`}
+      title={copied ? t('common.copied') : t('common.copy')}
     >
       {copied ? (
-        <Check className="w-4 h-4 text-green-500" />
+        <Check className="w-4 h-4" />
       ) : (
-        <Copy className="w-4 h-4 text-muted-foreground hover:text-foreground" />
+        <Copy className="w-4 h-4" />
       )}
     </button>
   );
@@ -337,7 +342,7 @@ function ModelCard({ model }: { model: ModelInfo }) {
   const { t } = useTranslation();
 
   return (
-    <Card>
+    <Card className="hover:shadow-md transition-shadow">
       <CardHeader className="pb-3">
         <div className="flex items-center gap-2">
           <CardTitle className="text-lg">{model.name}</CardTitle>
@@ -348,13 +353,19 @@ function ModelCard({ model }: { model: ModelInfo }) {
         <CardDescription>{model.description}</CardDescription>
       </CardHeader>
       <CardContent className="space-y-3">
-        <div className="flex items-center gap-2">
-          <span className="text-xs text-muted-foreground font-medium">{t('common.modelId')}</span>
-          <code className="text-sm bg-muted px-2 py-1 rounded font-mono">
+        {/* Model ID - Prominent Display */}
+        <div className="p-3 bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg border border-primary/20">
+          <div className="flex items-center justify-between gap-2 mb-1">
+            <span className="text-xs font-semibold text-primary uppercase tracking-wide">
+              {t('common.modelId')}
+            </span>
+            <CopyButton text={model.id} />
+          </div>
+          <code className="text-base font-mono font-bold text-foreground break-all block">
             {model.id}
           </code>
-          <CopyButton text={model.id} />
         </div>
+        
         {model.features && (
           <div className="flex flex-wrap gap-2">
             {model.features.map((feature) => (

@@ -378,7 +378,6 @@
     "registerNow": "Register Now",
     "copy": "Copy",
     "copied": "Copied!",
-    "modelId": "Model ID:",
-    "warning": "⚠️ Important: You need to replace the Model ID with one from the <link>model list</link> for the system to work."
+    "modelId": "Model ID"
   }
 }

@@ -378,7 +378,6 @@
     "registerNow": "Đăng ký ngay",
     "copy": "Copy",
     "copied": "Copied!",
-    "modelId": "Model ID:",
-    "warning": "⚠️ Lưu ý quan trọng: Bạn cần thay thế Model ID bằng một trong các model từ <link>danh sách model</link> để hệ thống hoạt động."
+    "modelId": "Model ID"
   }
 }
