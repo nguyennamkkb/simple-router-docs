@@ -11,6 +11,7 @@ import { KiloPage } from '@/pages/KiloPage';
 import { RooCodePage } from '@/pages/RooCodePage';
 import { ClinePage } from '@/pages/ClinePage';
 import { ZedPage } from '@/pages/ZedPage';
+import { OpenClawPage } from '@/pages/OpenClawPage';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="roo-code" element={<RooCodePage />} />
           <Route path="cline" element={<ClinePage />} />
           <Route path="zed" element={<ZedPage />} />
+          <Route path="openclaw" element={<OpenClawPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

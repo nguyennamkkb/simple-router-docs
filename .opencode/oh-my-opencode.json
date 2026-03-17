@@ -1,0 +1,93 @@
+{
+  "agents": {
+    "sisyphus": {
+      "model": "minimax-code/MiniMax-M2.5",
+      "fallback_models": ["minimax-code/MiniMax-M2.5", "openai/gpt-5.3-codex"],
+      "mode": "primary"
+    },
+    "prometheus": {
+      "model": "minimax-code/MiniMax-M2.5",
+      "fallback_models": ["minimax-code/MiniMax-M2."],
+      "mode": "primary"
+    },
+    "oracle": {
+      "model": "minimax-code/MiniMax-M2.5",
+      "fallback_models": ["openai/gpt-5.3-codex"],
+      "mode": "primary"
+    },
+    "librarian": {
+      "model": "minimax-code/MiniMax-M2.5",
+      "fallback_models": ["kimi-for-coding/k2p5"],
+      "mode": "subagent"
+    },
+    "explore": {
+      "model": "simple-router/q-coder-model",
+      "fallback_models": ["minimax-code/MiniMax-M2.5"],
+      "mode": "subagent"
+    },
+    "multimodal-looker": {
+      "model": "openai/gpt-5.3-codex",
+      "fallback_models": ["kimi-for-coding/k2p5"],
+      "mode": "subagent"
+    },
+    "hephaestus": {
+      "model": "openai/gpt-5.3-codex",
+      "variant": "medium",
+      "mode": "primary"
+    },
+    "build": {
+      "model": "minimax-code/MiniMax-M2.5",
+      "fallback_models": ["kimi-for-coding/k2p5"],
+      "mode": "subagent"
+    },
+    "plan": {
+      "model": "minimax-code/MiniMax-M2.5",
+      "fallback_models": ["kimi-for-coding/k2p5"],
+      "mode": "subagent"
+    },
+    "OpenCode-Builder": {
+      "model": "minimax-code/MiniMax-M2.5",
+      "mode": "subagent"
+    },
+    "metis": {
+      "model": "minimax-code/MiniMax-M2.5",
+      "fallback_models": ["kimi-for-coding/k2p5"],
+      "mode": "subagent"
+    },
+    "momus": {
+      "model": "minimax-code/MiniMax-M2.5",
+      "fallback_models": ["kimi-for-coding/k2p5"],
+      "mode": "subagent"
+    },
+    "atlas": {
+      "model": "minimax-code/MiniMax-M2.5",
+      "fallback_models": ["kimi-for-coding/k2p5"],
+      "mode": "subagent"
+    },
+    "sisyphus-junior": {
+      "model": "kimi-for-coding/k2p5", 
+      "fallback_models": ["minimax-code/MiniMax-M2.5"],
+      "mode": "subagent"
+    }
+  },
+  "sisyphus_agent": {
+    "disabled": false,
+    "planner_enabled": true,
+    "replace_plan": true,
+    "default_builder_enabled": false
+  },
+  "background_task": {
+    "defaultConcurrency": 5,
+    "providerConcurrency": {
+      "minimax": 5,
+      "openai": 2,
+      "kimi-for-coding": 3
+    }
+  },
+  "runtime_fallback": {
+    "enabled": true,
+    "max_fallback_attempts": 2,
+    "cooldown_seconds": 60
+  },
+  "auto_update": true
+}

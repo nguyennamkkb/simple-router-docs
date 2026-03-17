@@ -350,6 +350,44 @@
     "title": "Cài đặt Zed",
     "description": "Cấu hình editor Zed với Simple Router."
   },
+  "openclaw": {
+    "badge": "Tích hợp",
+    "title": "Cài đặt OpenClaw",
+    "description": "Cấu hình OpenClaw AI agent để hoạt động với cổng API hợp nhất của Simple Router.",
+    "steps": {
+      "step1": {
+        "title": "Giới thiệu",
+        "description": "OpenClaw là một trợ lý AI nguồn mở mạnh mẽ chạy trực tiếp trên máy của bạn. Nó có thể kết nối với nhiều nền tảng nhắn tin và cung cấp trợ lý AI luôn sẵn sàng với các khả năng nâng cao.",
+        "features": {
+          "title": "Tính năng chính",
+          "items": ["Tự host & Bảo mật", "25+ Kênh nhắn tin", "Chế độ giọng nói"]
+        }
+      },
+      "step2": {
+        "title": "Cài đặt",
+        "description": "Cài đặt OpenClaw bằng script cài đặt chính thức. Yêu cầu Node.js 22+.",
+        "note": "Trên Windows, khuyến nghị sử dụng WSL2."
+      },
+      "step3": {
+        "title": "Cấu hình",
+        "description": "Cấu hình OpenClaw để sử dụng Simple Router làm nhà cung cấp model bằng cách chỉnh sửa file cấu hình tại ~/.openclaw/openclaw.json:",
+        "note": "Thay thế gpt-5.4 bằng bất kỳ model có sẵn nào từ danh sách model của Simple Router."
+      },
+      "step4": {
+        "title": "Chạy",
+        "description": "Khởi động OpenClaw gateway và kết nối với Simple Router:",
+        "note": "Đảm bảo Simple Router đang chạy trước khi khởi động OpenClaw."
+      },
+      "step5": {
+        "title": "Kênh nhắn tin",
+        "description": "OpenClaw hỗ trợ nhiều nền tảng nhắn tin. Cấu hình kênh ưa thích của bạn:",
+        "features": {
+          "title": "Các kênh được hỗ trợ",
+          "items": ["WhatsApp, Telegram, Slack", "Discord, Signal, iMessage", "WebChat tích hợp"]
+        }
+      }
+    }
+  },
   "common": {
     "registerNow": "Đăng ký ngay",
     "copy": "Copy",

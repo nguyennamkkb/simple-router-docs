@@ -350,6 +350,44 @@
     "title": "Zed Setup",
     "description": "Configure Zed editor with Simple Router."
   },
+  "openclaw": {
+    "badge": "Integration",
+    "title": "OpenClaw Setup",
+    "description": "Configure OpenClaw AI agent to work with Simple Router's unified API gateway.",
+    "steps": {
+      "step1": {
+        "title": "Introduction",
+        "description": "OpenClaw is a powerful open-source AI assistant that runs locally on your machine. It can connect to various messaging platforms and provides an always-available AI assistant with advanced capabilities.",
+        "features": {
+          "title": "Key Features",
+          "items": ["Self-hosted & Privacy-focused", "25+ Messaging Channels", "Voice & Talk Mode"]
+        }
+      },
+      "step2": {
+        "title": "Installation",
+        "description": "Install OpenClaw using the official installer script. Requires Node.js 22+.",
+        "note": "On Windows, WSL2 is strongly recommended."
+      },
+      "step3": {
+        "title": "Configuration",
+        "description": "Configure OpenClaw to use Simple Router as your model provider by editing the config file at ~/.openclaw/openclaw.json:",
+        "note": "Replace gpt-5.4 with any available model from the Simple Router model list."
+      },
+      "step4": {
+        "title": "Run",
+        "description": "Start the OpenClaw gateway and connect to Simple Router:",
+        "note": "Make sure Simple Router is running before starting OpenClaw."
+      },
+      "step5": {
+        "title": "Messaging Channels",
+        "description": "OpenClaw supports many messaging platforms. Configure your preferred channel:",
+        "features": {
+          "title": "Supported Channels",
+          "items": ["WhatsApp, Telegram, Slack", "Discord, Signal, iMessage", "WebChat built-in"]
+        }
+      }
+    }
+  },
   "common": {
     "registerNow": "Register Now",
     "copy": "Copy",
