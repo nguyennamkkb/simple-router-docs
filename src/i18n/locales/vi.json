@@ -1,8 +1,8 @@
 {
   "app": {
     "name": "Simple Router",
-    "tagline": "Cổng API hợp nhất cho các AI Coding Agent",
-    "description": "Một endpoint duy nhất để truy cập Claude, Gemini, GPT và nhiều model khác."
+    "tagline": "Cổng API hợp nhất cho AI Coding Agent và OpenClaw",
+    "description": "Một endpoint duy nhất để truy cập GPT, Qwen và nhiều model khác."
   },
   "nav": {
     "docs": "Tài liệu",
@@ -24,7 +24,7 @@
     "badge1": "Unified AI Gateway",
     "badge2": "OpenAI Compatible",
     "title": "Simple Router",
-    "subtitle": "Cổng API hợp nhất cho <highlight>AI Coding Agent</highlight>.",
+    "subtitle": "Cổng API hợp nhất cho <highlight>AI Coding Agent</highlight> và <highlight>OpenClaw</highlight>.",
     "cta": "Đăng ký sử dụng",
     "viewDocs": "Xem tài liệu"
   },
@@ -49,26 +49,6 @@
         "Chỉ phù hợp với công cụ lập trình, coding agent"
       ],
       "highlights": ["Qwen 3.5 Plus", ""]
-    },
-    "a": {
-      "name": "Gói A",
-      "features": [
-        "Hỗ trợ đến 240 yêu cầu/5 giờ",
-        "Hỗ trợ các mô hình ",
-        " mới nhất",
-        "Phù hợp với nhiều nhu cầu khác nhau"
-      ],
-      "highlights": ["Claude Opus 4.6 và Gemini 3 Pro", ""]
-    },
-    "k": {
-      "name": "Gói K",
-      "features": [
-        "Hỗ trợ các mô hình ",
-        " series",
-        "Tối đa 1000 yêu cầu/tháng",
-        "Phù hợp cho các tác vụ cường độ cao"
-      ],
-      "highlights": ["Claude Sonnet, Haiku 4.5", ""]
     },
     "registerButton": "Đăng ký ngay"
   },
@@ -175,14 +155,10 @@
     "description": "Các model AI có sẵn trên Simple Router. Sử dụng Model ID khi cấu hình các công cụ.",
     "tabs": {
       "c": "Gói C",
-      "q": "Gói Q",
-      "a": "Gói A",
-      "k": "Gói K"
+      "q": "Gói Q"
     },
     "copy": "Copy Model ID",
     "categories": {
-      "claude": "Claude",
-      "gemini": "Gemini",
       "openai": "OpenAI",
       "qwen": "Qwen",
       "gpt": "GPT"

@@ -7,12 +7,12 @@ import { useTranslation } from 'react-i18next';
 import { LanguageSwitcher } from '@/components/ui/language-switcher';
 
 const models = [
-  { name: 'Claude Opus 4.6', color: 'text-orange-500' },
-  { name: 'Claude Sonnet 4.5', color: 'text-orange-400' },
-  { name: 'Gemini 3 Pro', color: 'text-blue-500' },
-  { name: 'Gemini 3 Flash', color: 'text-blue-400' },
+  { name: 'GPT 5.4', color: 'text-green-500' },
+  { name: 'GPT 5.3 Codex', color: 'text-green-400' },
   { name: 'GPT 5.2', color: 'text-green-500' },
-  { name: 'Codex 5.3', color: 'text-green-400' },
+  { name: 'Qwen 3.5 Plus', color: 'text-orange-500' },
+  { name: 'Qwen3 Coder', color: 'text-orange-400' },
+  { name: 'Qwen3 Vision', color: 'text-orange-400' },
 ];
 
 const integrations = [
@@ -69,30 +69,6 @@ const packages = [
       { textKey: 'packages.q.features.0', highlightKey: 'packages.q.highlights.0' },
       { textKey: 'packages.q.features.1' },
       { textKey: 'packages.q.features.2' },
-    ],
-  },
-  {
-    name: 'Gói A',
-    nameKey: 'packages.a.name',
-    icon: Sparkles,
-    color: 'text-blue-500',
-    bgColor: 'bg-blue-500/10',
-    features: [
-      { textKey: 'packages.a.features.0' },
-      { textKey: 'packages.a.features.1', highlightKey: 'packages.a.highlights.0', suffixKey: 'packages.a.features.2' },
-      { textKey: 'packages.a.features.3' },
-    ],
-  },
-  {
-    name: 'Gói K',
-    nameKey: 'packages.k.name',
-    icon: Zap,
-    color: 'text-orange-500',
-    bgColor: 'bg-orange-500/10',
-    features: [
-      { textKey: 'packages.k.features.0', highlightKey: 'packages.k.highlights.0', suffixKey: 'packages.k.features.1' },
-      { textKey: 'packages.k.features.2' },
-      { textKey: 'packages.k.features.3' },
     ],
   },
 ];
@@ -188,7 +164,7 @@ export function HomePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {packages.map((pkg) => (
             <Card key={pkg.nameKey} className="hover:border-primary/50 hover:shadow-lg transition-all duration-300">
               <CardHeader className="pb-3">

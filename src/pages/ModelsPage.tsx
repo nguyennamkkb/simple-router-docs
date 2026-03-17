@@ -9,126 +9,12 @@ interface ModelInfo {
   id: string;
   name: string;
   description: string;
-  category: 'claude' | 'gemini' | 'openai' | 'qwen' | 'gpt';
+  category: 'openai' | 'qwen' | 'gpt';
   features?: string[];
-  package: 'A' | 'K' | 'Q' | 'C';
+  package: 'Q' | 'C';
 }
 
 const models: ModelInfo[] = [
-  // Package A models (with a- prefix)
-  {
-    id: 'a-gemini-3.1-pro-high',
-    name: 'Gemini 3.1 Pro High',
-    description: 'Model Gemini 3.1 Pro High tối ưu cho chất lượng phản hồi và suy luận nâng cao',
-    category: 'gemini',
-    features: ['High Quality', 'Advanced Reasoning', 'Pro'],
-    package: 'A',
-  },
-  {
-    id: 'a-gemini-3.1-pro-low',
-    name: 'Gemini 3.1 Pro Low',
-    description: 'Model Gemini 3.1 Pro Low cân bằng chi phí và hiệu năng cho tác vụ hằng ngày',
-    category: 'gemini',
-    features: ['Cost Efficient', 'Balanced', 'Pro'],
-    package: 'A',
-  },
-  {
-    id: 'a-gemini-3-flash-preview',
-    name: 'Gemini 3 Flash Preview',
-    description: 'Model Gemini 3 Flash nhanh, tối ưu cho các tác vụ đơn giản',
-    category: 'gemini',
-    features: ['Fast', 'Cost Effective', 'Preview'],
-    package: 'A',
-  },
-  {
-    id: 'a-gpt-oss-120b-medium',
-    name: 'GPT OSS 120B Medium',
-    description: 'Model GPT mã nguồn mở 120B tham số',
-    category: 'openai',
-    features: ['Open Source', '120B Parameters', 'General Purpose'],
-    package: 'A',
-  },
-  {
-    id: 'a-claude-sonnet-4-6',
-    name: 'Claude Sonnet 4.6',
-    description: 'Model Claude Sonnet 4.6 tiêu chuẩn, cân bằng giữa tốc độ và chất lượng',
-    category: 'claude',
-    features: ['Fast Response', 'Code Generation', 'Balanced'],
-    package: 'A',
-  },
-  {
-    id: 'a-claude-opus-4-6-thinking',
-    name: 'Claude Opus 4.6 Thinking',
-    description: 'Model Claude Opus 4.6 cao cấp với khả năng suy luận mở rộng',
-    category: 'claude',
-    features: ['Extended Thinking', 'Complex Reasoning', 'Premium'],
-    package: 'A',
-  },
-  {
-    id: 'a-gemini-2.5-flash-lite',
-    name: 'Gemini 2.5 Flash Lite',
-    description: 'Phiên bản nhẹ của Gemini 2.5 Flash, tiết kiệm chi phí',
-    category: 'gemini',
-    features: ['Lightweight', 'Budget Friendly', 'Fast'],
-    package: 'A',
-  },
-  {
-    id: 'a-gemini-2.5-flash',
-    name: 'Gemini 2.5 Flash',
-    description: 'Model Gemini 2.5 Flash ổn định, phù hợp cho production',
-    category: 'gemini',
-    features: ['Stable', 'Fast', 'Production Ready'],
-    package: 'A',
-  },
-  // Package K models
-  {
-    id: 'k-kiro-claude-haiku-4-5',
-    name: 'Claude Haiku 4.5',
-    description: 'Model Claude Haiku 4.5 nhanh chóng cho các tác vụ đơn giản',
-    category: 'claude',
-    features: ['Fast Response', 'Lightweight', 'Quick Tasks'],
-    package: 'K',
-  },
-  {
-    id: 'k-kiro-claude-haiku-4-5-agentic',
-    name: 'Claude Haiku 4.5 Agentic',
-    description: 'Model Claude Haiku 4.5 với khả năng agentic cho các tác vụ tự động',
-    category: 'claude',
-    features: ['Agentic Capabilities', 'Fast Response', 'Automation'],
-    package: 'K',
-  },
-  {
-    id: 'k-kiro-claude-sonnet-4',
-    name: 'Claude Sonnet 4',
-    description: 'Model Claude Sonnet 4 cân bằng hiệu suất và tốc độ',
-    category: 'claude',
-    features: ['Balanced Performance', 'Fast Reasoning', 'Efficient'],
-    package: 'K',
-  },
-  {
-    id: 'k-kiro-claude-sonnet-4-5',
-    name: 'Claude Sonnet 4.5',
-    description: 'Model Claude Sonnet 4.5 cân bằng giữa hiệu suất và tốc độ',
-    category: 'claude',
-    features: ['Balanced Performance', 'Fast Reasoning', 'Efficient'],
-    package: 'K',
-  },
-  {
-    id: 'k-kiro-claude-sonnet-4-5-agentic',
-    name: 'Claude Sonnet 4.5 Agentic',
-    description: 'Model Claude Sonnet 4.5 với khả năng agentic',
-    category: 'claude',
-    features: ['Agentic Capabilities', 'Balanced Performance', 'Advanced'],
-    package: 'K',
-  },
-  {
-    id: 'k-kiro-claude-sonnet-4-agentic',
-    name: 'Claude Sonnet 4 Agentic',
-    description: 'Model Claude Sonnet 4 với khả năng agentic',
-    category: 'claude',
-    features: ['Agentic Capabilities', 'Balanced Performance', 'Efficient'],
-    package: 'K',
-  },
   // Package Q models
   {
     id: 'q-coder-model',
@@ -253,7 +139,7 @@ const models: ModelInfo[] = [
   },
 ];
 
-const packageModelOrder: Record<'A' | 'K' | 'Q' | 'C', string[]> = {
+const packageModelOrder: Record<'Q' | 'C', string[]> = {
   C: [
     'c-gpt-5.4',
     'c-gpt-5.3-codex',
@@ -273,37 +159,15 @@ const packageModelOrder: Record<'A' | 'K' | 'Q' | 'C', string[]> = {
     'q-qwen3-coder-flash',
     'q-vision-model',
   ],
-  A: [
-    'a-claude-opus-4-6-thinking',
-    'a-claude-sonnet-4-6',
-    'a-gemini-3.1-pro-high',
-    'a-gemini-3.1-pro-low',
-    'a-gemini-3-flash-preview',
-    'a-gpt-oss-120b-medium',
-    'a-gemini-2.5-flash-lite',
-    'a-gemini-2.5-flash',
-  ],
-  K: [
-    'k-kiro-claude-sonnet-4-5-agentic',
-    'k-kiro-claude-sonnet-4-5',
-    'k-kiro-claude-haiku-4-5-agentic',
-    'k-kiro-claude-haiku-4-5',
-    'k-kiro-claude-sonnet-4-agentic',
-    'k-kiro-claude-sonnet-4',
-  ],
 };
 
 const categoryColors = {
-  claude: 'bg-blue-500',
-  gemini: 'bg-emerald-500',
   openai: 'bg-purple-500',
   qwen: 'bg-orange-500',
   gpt: 'bg-green-500',
 };
 
 const categoryLabels = {
-  claude: 'Claude',
-  gemini: 'Gemini',
   openai: 'OpenAI',
   qwen: 'Qwen',
   gpt: 'GPT',
@@ -373,7 +237,7 @@ function ModelCard({ model }: { model: ModelInfo }) {
   );
 }
 
-function ModelList({ packageType }: { packageType: 'A' | 'K' | 'Q' | 'C' }) {
+function ModelList({ packageType }: { packageType: 'Q' | 'C' }) {
   const packageModels = models.filter((model) => model.package === packageType);
   const modelMap = new Map(packageModels.map((model) => [model.id, model]));
   const orderedModels = packageModelOrder[packageType]
@@ -420,14 +284,6 @@ export function ModelsPage() {
             <Package className="w-4 h-4 mr-2" />
             {t('models.tabs.q')}
           </TabsTrigger>
-          <TabsTrigger value="A">
-            <Package className="w-4 h-4 mr-2" />
-            {t('models.tabs.a')}
-          </TabsTrigger>
-          <TabsTrigger value="K">
-            <Package className="w-4 h-4 mr-2" />
-            {t('models.tabs.k')}
-          </TabsTrigger>
         </TabsList>
 
         <TabsContent value="C">
@@ -435,12 +291,6 @@ export function ModelsPage() {
         </TabsContent>
         <TabsContent value="Q">
           <ModelList packageType="Q" />
-        </TabsContent>
-        <TabsContent value="A">
-          <ModelList packageType="A" />
-        </TabsContent>
-        <TabsContent value="K">
-          <ModelList packageType="K" />
         </TabsContent>
       </Tabs>
     </div>

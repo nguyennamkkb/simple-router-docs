@@ -1,8 +1,8 @@
 {
   "app": {
     "name": "Simple Router",
-    "tagline": "Unified API Gateway for AI Coding Agents",
-    "description": "A single endpoint to access Claude, Gemini, GPT and many other models."
+    "tagline": "Unified API Gateway for AI Coding Agents and OpenClaw",
+    "description": "A single endpoint to access GPT, Qwen and many other models."
   },
   "nav": {
     "docs": "Docs",
@@ -24,7 +24,7 @@
     "badge1": "Unified AI Gateway",
     "badge2": "OpenAI Compatible",
     "title": "Simple Router",
-    "subtitle": "Unified API Gateway for <highlight>AI Coding Agents</highlight>.",
+    "subtitle": "Unified API Gateway for <highlight>AI Coding Agents</highlight> and <highlight>OpenClaw</highlight>.",
     "cta": "Register Now",
     "viewDocs": "View Docs"
   },
@@ -49,26 +49,6 @@
         "Only suitable for programming tools, coding agents"
       ],
       "highlights": ["Qwen 3.5 Plus", ""]
-    },
-    "a": {
-      "name": "Plan A",
-      "features": [
-        "Supports up to 240 requests/5 hours",
-        "Supports models ",
-        " latest",
-        "Suitable for various needs"
-      ],
-      "highlights": ["Claude Opus 4.6 and Gemini 3 Pro", ""]
-    },
-    "k": {
-      "name": "Plan K",
-      "features": [
-        "Supports models ",
-        " series",
-        "Maximum 1000 requests/month",
-        "Suitable for high-intensity tasks"
-      ],
-      "highlights": ["Claude Sonnet, Haiku 4.5", ""]
     },
     "registerButton": "Register Now"
   },
@@ -175,14 +155,10 @@
     "description": "AI models available on Simple Router. Use Model ID when configuring tools.",
     "tabs": {
       "c": "Plan C",
-      "q": "Plan Q",
-      "a": "Plan A",
-      "k": "Plan K"
+      "q": "Plan Q"
     },
     "copy": "Copy Model ID",
     "categories": {
-      "claude": "Claude",
-      "gemini": "Gemini",
       "openai": "OpenAI",
       "qwen": "Qwen",
       "gpt": "GPT"
