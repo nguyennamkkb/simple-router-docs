@@ -45,11 +45,14 @@ export function OpenClawPage() {
             {t('openclaw.steps.step2.description')}
           </p>
           <CodeBlock
-            code={`# macOS / Linux / WSL2
-curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash
+            code={`# Install OpenClaw (Node.js 22+ required)
+npm install -g openclaw@latest
 
-# Windows (PowerShell)
-irm openclaw.ai/install.ps1 | iex`}
+# or use pnpm
+pnpm add -g openclaw@latest
+
+# Run onboarding wizard (recommended)
+openclaw onboard --install-daemon`}
           />
           <p className="text-sm text-muted-foreground mt-4">
             {t('openclaw.steps.step2.note')}
@@ -61,18 +64,29 @@ irm openclaw.ai/install.ps1 | iex`}
             {t('openclaw.steps.step3.description')}
           </p>
           <CodeBlock
-            code={`{
+            code={`# Configure using CLI
+openclaw config set agent.model.provider "openai"
+openclaw config set agent.model.primary "c-gpt-5.4"
+
+# Or edit config file: ~/.openclaw/openclaw.json`}
+          />
+          <div className="mt-6 p-4 rounded-lg border bg-muted/50">
+            <h4 className="font-semibold mb-3">Simple Router Config:</h4>
+            <CodeBlock
+              code={`{
   "agent": {
     "model": {
-      "primary": "openai/gpt-5.4"
+      "provider": "openai",
+      "primary": "c-gpt-5.4",
+      "openai": {
+        "apiKey": "YOUR_API_KEY",
+        "baseURL": "http://127.0.0.1:8317/v1"
+      }
     }
-  },
-  "identity": {
-    "name": "MyAgent",
-    "emoji": "🤖"
   }
 }`}
-          />
+            />
+          </div>
           <p className="text-sm text-muted-foreground mt-4">
             {t('openclaw.steps.step3.note')}
           </p>
@@ -83,11 +97,14 @@ irm openclaw.ai/install.ps1 | iex`}
             {t('openclaw.steps.step4.description')}
           </p>
           <CodeBlock
-            code={`# Start the gateway
-openclaw gateway --port 18789
+            code={`# Start the gateway (default port: 18789)
+openclaw gateway --port 18789 --verbose
 
-# Or use with Simple Router
-openclaw config set agent.model.primary "gpt-5.4"`}
+# Send a message
+openclaw message send --to +1234567890 --message "Hello"
+
+# Talk to the assistant
+openclaw agent --message "What can you do?" --thinking high`}
           />
         </StepSection>
 

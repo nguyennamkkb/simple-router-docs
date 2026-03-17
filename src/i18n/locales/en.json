@@ -370,8 +370,8 @@
       },
       "step3": {
         "title": "Configuration",
-        "description": "Configure OpenClaw to use Simple Router as your model provider by editing the config file at ~/.openclaw/openclaw.json:",
-        "note": "Replace gpt-5.4 with any available model from the Simple Router model list."
+        "description": "Configure OpenClaw to use Simple Router as your model provider. You can use CLI commands or edit the config file directly.",
+        "note": "Replace YOUR_API_KEY with your actual API key from Telegram @simple_route_bot. Model IDs: c-gpt-5.4, c-gpt-5.3-codex, q-qwen3-coder-plus, etc."
       },
       "step4": {
         "title": "Run",

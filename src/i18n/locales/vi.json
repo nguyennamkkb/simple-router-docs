@@ -370,8 +370,8 @@
       },
       "step3": {
         "title": "Cấu hình",
-        "description": "Cấu hình OpenClaw để sử dụng Simple Router làm nhà cung cấp model bằng cách chỉnh sửa file cấu hình tại ~/.openclaw/openclaw.json:",
-        "note": "Thay thế gpt-5.4 bằng bất kỳ model có sẵn nào từ danh sách model của Simple Router."
+        "description": "Cấu hình OpenClaw để sử dụng Simple Router làm nhà cung cấp model. Bạn có thể dùng CLI hoặc chỉnh sửa file cấu hình trực tiếp.",
+        "note": "Thay YOUR_API_KEY bằng API key thực từ Telegram @simple_route_bot. Model IDs: c-gpt-5.4, c-gpt-5.3-codex, q-qwen3-coder-plus, v.v."
       },
       "step4": {
         "title": "Chạy",
