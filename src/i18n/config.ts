@@ -12,14 +12,21 @@ export const resources = {
   vi: { translation: translationVI },
 } as const;
 
+const languageDetector = new LanguageDetector();
+
 i18n
-  .use(LanguageDetector)
+  .use(languageDetector)
   .use(initReactI18next)
   .init({
     resources,
-    fallbackLng: 'en',
+    fallbackLng: 'vi',
     interpolation: {
       escapeValue: false,
+    },
+    detection: {
+      order: ['querystring'],
+      caches: [],
+      lookupQuerystring: 'lang',
     },
   });
 
